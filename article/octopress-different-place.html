@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Octopress不同电脑发布文章 - 屁熊猫的实验室</title>
+  <meta name="author" content="PPanda">
+  <meta name="description" content="遇到一个问题：我有一台正常发布文章的电脑M，而我想在另外一条电脑W上也可以正常发布新文章，rake deploy后却无法提交，提示Everything up-to-date，google了一下发现问题是W电脑没有rake setup_github_pages配置正确的仓库，这里有一个讨厌的前提条件 &hellip;">
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="canonical" href="http://pppanda.github.com/article/octopress-different-place.html">
+  <link href="/favicon.ico" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/atom.xml" rel="alternate" title="屁熊猫的实验室" type="application/atom+xml">
+</head>
+<body   >
+<header id="header" role="banner"><hgroup>
+  <h1><a href="/">屁熊猫的实验室</a></h1>
+</hgroup>
+</header>
+<nav id="site-nav" role="navigation"><ul class="main-navigation fix">
+  <li><a href="/">Home</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+  <li><a href="/about">About</a></li>
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+</ul></nav>
+<div id="content">
+  <article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">Octopress不同电脑发布文章</h1>
+    
+    
+      <p class="meta">
+        
+  
+
+<span class="byline author vcard">Posted by <span class="fn">PPanda</span></span>
+ |      
+
+  
+
+<time datetime="2012-12-11T15:59:00+08:00" pubdate data-updated="true">2012年 12月 11日</time> | 
+
+<span class="categories">
+  
+    <a class='category' href='/categories/octopress/'>Octopress</a>
+  
+</span>
+
+
+        
+        | <a href="#disqus_thread">查看评论</a>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p>遇到一个问题：我有一台正常发布文章的电脑M，而我想在另外一条电脑W上也可以正常发布新文章，<code>rake deploy</code>后却无法提交，提示<em>Everything up-to-date</em>，google了一下发现问题是W电脑没有<code>rake setup_github_pages</code>配置正确的仓库，这里有一个讨厌的前提条件，W电脑必须使用代理才可以上网，而<strong>Git bash</strong>无法设置代理，这就导致无法正确配置Octopress，我尝试了很多方法都无法正常获取仓库信息，于是放弃这个方法。</p>
+
+<p>我只好去下载了Git小乌龟-<a href="http://code.google.com/p/tortoisegit/">tortoisegit</a>，像svn绿毛龟一样设置好代理，然后克隆线上仓库地址。这样就不能使用<code>rake deploy</code>来提交发布文章，只好使用比较二的先本地<code>rake generate</code>，然后<code>rake preview</code>,如果预览OK的话，就把/repo_PATH/public文件下文件复制到克隆好的文件中，最后就是正常<code>git add *</code>和<code>git push</code>，使用这种曲线救国的方式也能提交代码。在这种有代理的网络环境下还比较好使，正常情况下还是<code>rake deploy</code>靠谱。</p>
+</div>
+
+<hr/>
+<div class="recent-post-box innerbox">
+  <h2>Recent Posts</h2>
+  <ul id="recent_posts" class="fix">
+    
+      <li class="post">
+        <a href="/article/seajs-use.html">+ seaJs使用方法</a>
+      </li>
+    
+      <li class="post">
+        <a href="/article/octopress-different-place.html">+ Octopress不同电脑发布文章</a>
+      </li>
+    
+      <li class="post">
+        <a href="/article/new-blog-with-octopress.html">+ 开始使用Octopress</a>
+      </li>
+    
+      <li class="post">
+        <a href="/article/hello-world.html">+ hello world</a>
+      </li>
+    
+  </ul>
+  </div>
+
+
+
+  <footer>
+    <p class="meta fix">
+      
+        <a class="basic-alignment left" href="/article/new-blog-with-octopress.html" title="Previous Post: 开始使用Octopress">&laquo; 开始使用Octopress</a>
+      
+      
+        <a class="basic-alignment right" href="/article/seajs-use.html" title="Next Post: seaJs使用方法">seaJs使用方法 &raquo;</a>
+      
+    </p>
+  </footer>
+
+</article>
+
+  <section class="comment">
+    <h2>Comments</h2>
+    <div id="disqus_thread" aria-live="polite"><div class="ds-thread"></div>
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"ppanda"};
+(function() {
+  var ds = document.createElement('script');
+  ds.type = 'text/javascript';ds.async = true;
+  ds.src = 'http://static.duoshuo.com/embed.js';
+  ds.charset = 'UTF-8';
+  (document.getElementsByTagName('head')[0] 
+  || document.getElementsByTagName('body')[0]).appendChild(ds);
+})();
+</script>
+</div>
+  </section>
+
+
+<aside class="sidebar">
+  
+    <section>
+  <h2>About Me</h2>
+<pre class="reset">
+{
+	一屌丝
+}
+<div style="text-align:center;font-size:18px;font-weight:700;font-family:Comic Sans MS"><a style="color: #219a44;" href="http://www.douban.com/people/ppanda/" target="_blank">Douban</a> <a style="color: #4c90c6;" href="https://twitter.com/pxiongmao" target="_blank">Twitter</a> <a style="color: #3b5998;" href="http://www.facebook.com/pxiongmao" target="_blank">Facebook</a> <a style="color: #0cf;" href="http://fanfou.com/laozhuhome" target="_blank">Fanfou</a> <a style="color: #E32529;" href="http://weibo.com/209123645" target="_blank">Weibo</a></div>
+</pre>
+</section>
+  
+</aside>
+
+
+</div>
+<footer id="footer" role="contentinfo"><p style="font-size:12px;">
+  Copyright &copy; 2012 - by <a style="color:#EA5246;" target="_blank" href="http://ppanda.com/what-am-i-in-they-eyes.html">PPanda</a> <a target="_blank" href="http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&amp;email=PAoEDg8ECQgPfE1NEl9TUQ" style="text-decoration:none;">给我写信</a>
+</p>
+</footer>
+</body>
+</html>

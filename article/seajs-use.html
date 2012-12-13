@@ -2,13 +2,13 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>屁熊猫的实验室</title>
+  <title>seaJs使用方法 - 屁熊猫的实验室</title>
   <meta name="author" content="PPanda">
   <meta name="description" content="seaJs是啥子 SeaJS 是由玉伯开发的一个遵循 CommonJS 规范的模块加载框架，可用来轻松愉悦地加载任意 JavaScript 模块和css模块样式。SeaJS非常小巧，小巧在于压缩和gzip后体积只有4K,而且接口和方法也非常少，SeaJS 就两个核心：模块定义和 &hellip;">
   <meta name="HandheldFriendly" content="True">
   <meta name="MobileOptimized" content="320">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="canonical" href="http://pppanda.github.com/index.html">
+  <link rel="canonical" href="http://pppanda.github.com/article/seajs-use.html">
   <link href="/favicon.ico" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <link href="/atom.xml" rel="alternate" title="屁熊猫的实验室" type="application/atom+xml">
@@ -25,13 +25,11 @@
   <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
 </ul></nav>
 <div id="content">
-  <div class="blog-index">
-    
-    <article class="post">
-      
+  <article class="hentry" role="article">
+  
   <header>
     
-      <h1 class="entry-title"><a href="/article/seajs-use.html">seaJs使用方法</a></h1>
+      <h1 class="entry-title">seaJs使用方法</h1>
     
     
       <p class="meta">
@@ -47,14 +45,14 @@
 
 
         
-        | <a href="/article/seajs-use.html#disqus_thread">查看评论</a>
+        | <a href="#disqus_thread">查看评论</a>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><h2>seaJs是啥子</h2>
+<div class="entry-content"><h2>seaJs是啥子</h2>
 
 <p>SeaJS 是由玉伯开发的一个遵循 CommonJS 规范的模块加载框架，可用来轻松愉悦地加载任意 JavaScript 模块和css模块样式。SeaJS非常小巧，小巧在于压缩和gzip后体积只有4K,而且接口和方法也非常少，SeaJS 就两个核心：模块定义和 模块的加载及依赖关系。SeaJS非常强大，SeaJS可以加载任意 JavaScript 模块和css模块样式，SeaJS会保证你在使用一个模块时,已经将所依赖的其他模块载入到脚本运行环境中。玉伯的说法，SeaJS可以让你享受写代码的乐趣，不用去管那些加载的问题。</p>
 
@@ -122,173 +120,62 @@
 
 
 </div>
-  
-  
 
-    </article>
-   
-    <article class="post">
-      
-  <header>
+<hr/>
+<div class="recent-post-box innerbox">
+  <h2>Recent Posts</h2>
+  <ul id="recent_posts" class="fix">
     
-      <h1 class="entry-title"><a href="/article/octopress-different-place.html">Octopress不同电脑发布文章</a></h1>
+      <li class="post">
+        <a href="/article/seajs-use.html">+ seaJs使用方法</a>
+      </li>
     
+      <li class="post">
+        <a href="/article/octopress-different-place.html">+ Octopress不同电脑发布文章</a>
+      </li>
     
-      <p class="meta">
-        
-  
-
-<span class="byline author vcard">Posted by <span class="fn">PPanda</span></span>
- |      
-
-  
-
-<time datetime="2012-12-11T15:59:00+08:00" pubdate data-updated="true">2012年 12月 11日</time> | 
-
-<span class="categories">
-  
-    <a class='category' href='/categories/octopress/'>Octopress</a>
-  
-</span>
-
-
-        
-        | <a href="/article/octopress-different-place.html#disqus_thread">查看评论</a>
-        
-      </p>
+      <li class="post">
+        <a href="/article/new-blog-with-octopress.html">+ 开始使用Octopress</a>
+      </li>
     
-  </header>
-
-
-  <div class="entry-content"><p>遇到一个问题：我有一台正常发布文章的电脑M，而我想在另外一条电脑W上也可以正常发布新文章，<code>rake deploy</code>后却无法提交，提示<em>Everything up-to-date</em>，google了一下发现问题是W电脑没有<code>rake setup_github_pages</code>配置正确的仓库，这里有一个讨厌的前提条件，W电脑必须使用代理才可以上网，而<strong>Git bash</strong>无法设置代理，这就导致无法正确配置Octopress，我尝试了很多方法都无法正常获取仓库信息，于是放弃这个方法。</p>
-
-<p>我只好去下载了Git小乌龟-<a href="http://code.google.com/p/tortoisegit/">tortoisegit</a>，像svn绿毛龟一样设置好代理，然后克隆线上仓库地址。这样就不能使用<code>rake deploy</code>来提交发布文章，只好使用比较二的先本地<code>rake generate</code>，然后<code>rake preview</code>,如果预览OK的话，就把/repo_PATH/public文件下文件复制到克隆好的文件中，最后就是正常<code>git add *</code>和<code>git push</code>，使用这种曲线救国的方式也能提交代码。在这种有代理的网络环境下还比较好使，正常情况下还是<code>rake deploy</code>靠谱。</p>
-</div>
-  
-  
-
-    </article>
-   
-    <article class="post">
-      
-  <header>
+      <li class="post">
+        <a href="/article/hello-world.html">+ hello world</a>
+      </li>
     
-      <h1 class="entry-title"><a href="/article/new-blog-with-octopress.html">开始使用Octopress</a></h1>
-    
-    
-      <p class="meta">
-        
-  
-
-<span class="byline author vcard">Posted by <span class="fn">PPanda</span></span>
- |      
-
-  
-
-<time datetime="2012-12-08T00:58:00+08:00" pubdate data-updated="true">2012年 12月 08日</time> | 
-
-<span class="categories">
-  
-    <a class='category' href='/categories/octopress/'>Octopress</a>
-  
-</span>
-
-
-        
-        | <a href="/article/new-blog-with-octopress.html#disqus_thread">查看评论</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>用惯了<a href="http:wordpress.rog">wordpress</a>突然有一天我就在想：我为什要使用wordpress？在折腾wordpress的时候我忘记了博客的本质：<em>Write</em> and <em>Post</em> ，为了互动可以再加上评论功能。再看看如今的wordpress，已经变得非常臃肿，虽然有很多人依然选择wordpress作为最初建站的一个程序，但是我还是看到很多人离开了wordpress的阵营，因为一个经常写代码的童鞋最讨厌的就是臃肿的程序。</p>
-
-<p>作为一个会常写代码的屌丝我发现了<a href="http:octopress.org">Octopress</a>这个小章鱼，了解了小章鱼的使用方法后发现这玩意着实击中了我的G点，再加上可以混搭<a href="http:github.com">github</a>这神奇，尼玛，这就叫 <em>A blogging framework for hackers.</em> 么？</p>
-
-<p>下面是在windows下如何搭建一个Octopress的方法，荣耀属于<a href="http://sinosmond.github.com/blog/2012/03/12/install-and-deploy-octopress-to-github-on-windows7-from-scratch/">Sinosmond&#8217;s Blog</a></p>
-
-<h3 id="octopress--1">Octopress 简介</h3>
-
-
-
-
-<ul>
-  <li><a href="http://octopress.org/">Octopress</a> 是一款基于 <a href="http://jekyllrb.com/">Jekyll</a> 的静态站点生成系统。
-    <ul>
-      <li>使用 Markdown 标记语言书写源文件， 通过 Markdown 解析器转换为 HTML 文件</li>
-      <li>通过 Octopress 提供的站点模板提供所需的 Web 资产文件 （Javascript、CSS、image 等）</li>
-      <li>只包含静态网页，无需数据库支持，对系统要求低且迁移方便  </li>
-      <li>以编写程序的方式编制网站，便于实现版本控制</li>
-    </ul>
-  </li>
-  <li><a href="http://octopress.org/">Octopress</a> / <a href="http://jekyllrb.com/">Jekyll</a> 使用简洁的Ruby框架实现。
-    <ul>
-      <li>Octopress 以 rake 任务的形式实现静态站点页面生成, 操作十分简单</li>
-      <li>Octopress 以 rake 任务的形式实现到普通网站和 <a href="http://github.com">Github</a> 的发布 </li>
-      <li>Octopress 与 Github 完美结合，你无需学习过多的 git 命令语法，使非专业人士的使用成为可能</li>
-    </ul>
-  </li>
-</ul>
-
-
-</div>
-  
-  
-    <footer class="tc">
-      <a rel="full-article" href="/article/new-blog-with-octopress.html">Read More</a>
-    </footer>
-  
-
-    </article>
-   
-    <article class="post">
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/article/hello-world.html">Hello World</a></h1>
-    
-    
-      <p class="meta">
-        
-  
-
-<span class="byline author vcard">Posted by <span class="fn">PPanda</span></span>
- |      
-
-  
-
-<time datetime="2012-12-06T23:13:00+08:00" pubdate data-updated="true">2012年 12月 06日</time> | 
-
-<span class="categories">
-  
-    <a class='category' href='/categories/octopress/'>Octopress</a>
-  
-</span>
-
-
-        
-        | <a href="/article/hello-world.html#disqus_thread">查看评论</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><h2>Hello World!</h2>
-
-<p>感觉没有这句经典的问候就像少了点什么</p>
-</div>
-  
-  
-
-    </article>
-  
-  <div class="pagination">
-    
-    
+  </ul>
   </div>
+
+
+
+  <footer>
+    <p class="meta fix">
+      
+        <a class="basic-alignment left" href="/article/octopress-different-place.html" title="Previous Post: Octopress不同电脑发布文章">&laquo; Octopress不同电脑发布文章</a>
+      
+      
+    </p>
+  </footer>
+
+</article>
+
+  <section class="comment">
+    <h2>Comments</h2>
+    <div id="disqus_thread" aria-live="polite"><div class="ds-thread"></div>
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"ppanda"};
+(function() {
+  var ds = document.createElement('script');
+  ds.type = 'text/javascript';ds.async = true;
+  ds.src = 'http://static.duoshuo.com/embed.js';
+  ds.charset = 'UTF-8';
+  (document.getElementsByTagName('head')[0] 
+  || document.getElementsByTagName('body')[0]).appendChild(ds);
+})();
+</script>
 </div>
+  </section>
+
+
 <aside class="sidebar">
   
     <section>
@@ -302,6 +189,8 @@
 </section>
   
 </aside>
+
+
 </div>
 <footer id="footer" role="contentinfo"><p style="font-size:12px;">
   Copyright &copy; 2012 - by <a style="color:#EA5246;" target="_blank" href="http://ppanda.com/what-am-i-in-they-eyes.html">PPanda</a> <a target="_blank" href="http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&amp;email=PAoEDg8ECQgPfE1NEl9TUQ" style="text-decoration:none;">给我写信</a>
