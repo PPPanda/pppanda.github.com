@@ -4,7 +4,7 @@
   <title><![CDATA[屁熊猫的实验室]]></title>
   <link href="http://PPPanda.github.com/atom.xml" rel="self"/>
   <link href="http://PPPanda.github.com/"/>
-  <updated>2012-12-17T23:35:06+08:00</updated>
+  <updated>2012-12-17T23:36:12+08:00</updated>
   <id>http://PPPanda.github.com/</id>
   <author>
     <name><![CDATA[PPanda]]></name>
@@ -93,6 +93,11 @@
 </span><span class='line'>    <span class="p">}</span>
 </span><span class='line'><span class="p">});</span>
 </span></code></pre></td></tr></table></div></figure>
+
+
+
+
+<!--more -->
 
 
 <p>exports参数是用来向外提供模块的 API.也就是通过这个exports其他的模块就能访问func2方法。</p>
