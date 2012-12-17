@@ -4,11 +4,11 @@
   <meta charset="utf-8">
   <title>屁熊猫的实验室</title>
   <meta name="author" content="PPanda">
-  <meta name="description" content="seaJs是啥子 SeaJS 是由玉伯开发的一个遵循 CommonJS 规范的模块加载框架，可用来轻松愉悦地加载任意 JavaScript 模块和css模块样式。SeaJS非常小巧，小巧在于压缩和gzip后体积只有4K,而且接口和方法也非常少，SeaJS 就两个核心：模块定义和 &hellip;">
+  <meta name="description" content="js的载入 当浏览器从服务器接收到了HTML文档，并把HTML在内存中转换成DOM树，在转换的过程中如果发现某个节点(node)上引用了CSS或者IMAGE，就会再发1个request去请求CSS或image,然后继续执行下面的转换，而不需要等待request的返回，当request返回后， &hellip;">
   <meta name="HandheldFriendly" content="True">
   <meta name="MobileOptimized" content="320">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="canonical" href="http://pppanda.github.com/index.html">
+  <link rel="canonical" href="http://PPPanda.github.com/index.html">
   <link href="/favicon.ico" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <link href="/atom.xml" rel="alternate" title="屁熊猫的实验室" type="application/atom+xml">
@@ -31,7 +31,7 @@
       
   <header>
     
-      <h1 class="entry-title"><a href="/article/seajs-use.html">seaJs使用方法</a></h1>
+      <h1 class="entry-title"><a href="/article/performance.html">Performance</a></h1>
     
     
       <p class="meta">
@@ -43,7 +43,61 @@
 
   
 
-<time datetime="2012-12-12T16:14:00+08:00" pubdate data-updated="true">2012年 12月 12日</time> | 
+<time datetime="2012-12-17T14:38:00+08:00" pubdate data-updated="true">2012年12月17日</time> | 
+
+<span class="categories">
+  
+    <a class='category' href='/categories/preformamce/'>preformamce</a>
+  
+</span>
+
+
+        
+        | <a href="/article/performance.html#disqus_thread">查看评论</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><h2>js的载入</h2>
+
+<p>当浏览器从服务器接收到了HTML文档，并把HTML在内存中转换成DOM树，在转换的过程中如果发现某个节点(node)上引用了CSS或者IMAGE，就会再发1个request去请求CSS或image,然后继续执行下面的转换，而不需要等待request的返回，当request返回后，只需要把返回的内容放入到DOM树中对应的位置就OK。但当引用了JS的时候，浏览器发送1个js request就会一直等待该request的返回。因为浏览器需要1个稳定的DOM树结构，而JS中很有可能有代码直接改变了DOM树结构，比如使用document.write 或 appendChild,甚至是直接使用的location.href进行跳转，浏览器为了防止出现JS修改DOM树，需要重新构建DOM树的情况，所以就会阻塞其他的下载和呈现.</p>
+
+<p>因为浏览器会维持html中css和js的顺序，样式表必须在嵌入的JS执行前先加载、解析完。而嵌入的JS会阻塞后面的资源加载，所以就会出现上面CSS阻塞下载的情况。</p>
+
+<p>js放在样式前和样式后？</p>
+
+<p>放在底部，虽然放在底部照样会阻塞所有呈现，但不会阻塞资源下载</p>
+</div>
+  
+  
+
+    </article>
+   
+    <article class="post">
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/article/seajs-use.html">seaJs入门简介</a></h1>
+    
+    
+      <p class="meta">
+        
+  
+
+<span class="byline author vcard">Posted by <span class="fn">PPanda</span></span>
+ |      
+
+  
+
+<time datetime="2012-12-12T16:14:00+08:00" pubdate data-updated="true">2012年12月12日</time> | 
+
+<span class="categories">
+  
+    <a class='category' href='/categories/preformance/'>preformance</a>
+  
+</span>
 
 
         
@@ -56,9 +110,12 @@
 
   <div class="entry-content"><h2>seaJs是啥子</h2>
 
-<p>SeaJS 是由玉伯开发的一个遵循 CommonJS 规范的模块加载框架，可用来轻松愉悦地加载任意 JavaScript 模块和css模块样式。SeaJS非常小巧，小巧在于压缩和gzip后体积只有4K,而且接口和方法也非常少，SeaJS 就两个核心：模块定义和 模块的加载及依赖关系。SeaJS非常强大，SeaJS可以加载任意 JavaScript 模块和css模块样式，SeaJS会保证你在使用一个模块时,已经将所依赖的其他模块载入到脚本运行环境中。玉伯的说法，SeaJS可以让你享受写代码的乐趣，不用去管那些加载的问题。</p>
+<blockquote><p>SeaJS 是由玉伯开发的一个遵循 CommonJS 规范的模块加载框架，可用来轻松愉悦地加载任意 JavaScript 模块和css模块样式。SeaJS非常小巧，小巧在于压缩和gzip后体积只有4K,而且接口和方法也非常少，SeaJS 就两个核心：模块定义和 模块的加载及依赖关系。SeaJS非常强大，SeaJS可以加载任意 JavaScript 模块和css模块样式，SeaJS会保证你在使用一个模块时,已经将所依赖的其他模块载入到脚本运行环境中。玉伯的说法，SeaJS可以让你享受写代码的乐趣，不用去管那些加载的问题。</p>
 
-<p>感觉有些像YUI的用到即载入的思想</p>
+<p>SeaJS 是一个适用于 Web 浏览器端的模块加载器。在 SeaJS 里，一切皆是模块，所有模块协同构建成模块系统。SeaJS 首要要解决的是模块系统的基本问题：
+在前端开发领域，一个模块，可以是JS 模块，也可以是 CSS 模块，或是 Template 等模块。在 SeaJS 里，我们专注于 JS 模块（其他类型的模块可以转换为 JS 模块）</p></blockquote>
+
+<p>使用SeaJs会改变正常引入js文件的方式,不需要使用<code>&lt;script src="script.js"&gt;&lt;/script&gt;</code>引入js文件，而是使用<code>require</code>引入所依赖js文件，每个功能模块所承担的功能和依赖的js文件一目了然，然后就是Enjoy coding了。</p>
 
 <h3>定义模块</h3>
 
@@ -68,16 +125,50 @@
 <span class='line-number'>4</span>
 <span class='line-number'>5</span>
 <span class='line-number'>6</span>
-</pre></td><td class='code'><pre><code class='js'><span class='line'><span class="nx">define</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">require</span><span class="p">,</span><span class="nx">exports</span><span class="p">,</span><span class="nx">module</span><span class="p">){</span>
-</span><span class='line'><span class="c1">// 使用exports导出模块接口，而非返回一个对象</span>
-</span><span class='line'>    <span class="nx">exports</span><span class="p">.</span><span class="nx">sayHello</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">eleID</span><span class="p">,</span><span class="nx">text</span><span class="p">)</span> <span class="p">{</span>
-</span><span class='line'>        <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="nx">eleID</span><span class="p">).</span><span class="nx">innerHTML</span><span class="o">=</span><span class="nx">text</span><span class="p">;</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+</pre></td><td class='code'><pre><code class='js'><span class='line'><span class="c1">//define 模块基本factory参数用法 </span>
+</span><span class='line'><span class="nx">define</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">require</span><span class="p">,</span><span class="nx">exports</span><span class="p">,</span><span class="nx">module</span><span class="p">){</span>
+</span><span class='line'>    <span class="nx">exports</span><span class="p">.</span><span class="nx">Fn</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">para</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>        <span class="c1">//do Something</span>
 </span><span class='line'>    <span class="p">};</span>
+</span><span class='line'><span class="p">});</span>
+</span><span class='line'>
+</span><span class='line'><span class="nx">define</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">require</span><span class="p">,</span> <span class="nx">exports</span><span class="p">,</span> <span class="nx">module</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>    <span class="kd">var</span> <span class="nx">$</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;jquery&#39;</span><span class="p">);</span> <span class="c1">//引入jquery模块</span>
+</span><span class='line'>    <span class="kd">var</span> <span class="nx">ST</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;sntouch&#39;</span><span class="p">);</span> <span class="c1">//引入sntouch模块</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="kd">var</span> <span class="nx">data1</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="c1">//私有数据</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="kd">var</span> <span class="nx">func1</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span> <span class="c1">//私有方法</span>
+</span><span class='line'>        <span class="k">return</span> <span class="s1">&#39;func1&#39;</span>
+</span><span class='line'>    <span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="nx">exports</span><span class="p">.</span><span class="nx">data2</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span> <span class="c1">//公共数据</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="nx">exports</span><span class="p">.</span><span class="nx">func2</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">str</span><span class="p">)</span> <span class="p">{</span> <span class="c1">//公共方法</span>
+</span><span class='line'>        <span class="nx">alert</span><span class="p">(</span><span class="nx">str</span><span class="p">)</span>
+</span><span class='line'>    <span class="p">}</span>
 </span><span class='line'><span class="p">});</span>
 </span></code></pre></td></tr></table></div></figure>
 
 
-<p>exports参数是用来向外提供模块的 API.也就是通过这个exports其他的模块就能访问sayHello方法。</p>
+<p>exports参数是用来向外提供模块的 API.也就是通过这个exports其他的模块就能访问func2方法。</p>
 
 <h3>加载模块</h3>
 
@@ -87,8 +178,8 @@
 <figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
-</pre></td><td class='code'><pre><code class='js'><span class='line'><span class="nx">seajs</span><span class="p">.</span><span class="nx">use</span><span class="p">(</span><span class="s2">&quot;sayHello/sayHello&quot;</span><span class="p">,</span><span class="kd">function</span><span class="p">(</span><span class="nx">say</span><span class="p">){</span>
-</span><span class='line'>  <span class="nx">say</span><span class="p">.</span><span class="nx">sayHello</span><span class="p">(</span><span class="s2">&quot;out&quot;</span><span class="p">,</span><span class="s2">&quot;Hello SeaJS!&quot;</span><span class="p">);</span>
+</pre></td><td class='code'><pre><code class='js'><span class='line'><span class="nx">seajs</span><span class="p">.</span><span class="nx">use</span><span class="p">(</span><span class="s2">&quot;alias/main&quot;</span><span class="p">,</span><span class="kd">function</span><span class="p">(</span><span class="nx">s</span><span class="p">){</span>
+</span><span class='line'>  <span class="nx">s</span><span class="p">.</span><span class="nx">func2</span><span class="p">(</span><span class="s2">&quot;Hello SeaJS!&quot;</span><span class="p">);</span>
 </span><span class='line'><span class="p">});</span>
 </span></code></pre></td></tr></table></div></figure>
 
@@ -106,21 +197,54 @@
 <span class='line-number'>9</span>
 <span class='line-number'>10</span>
 <span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
 </pre></td><td class='code'><pre><code class='js'><span class='line'><span class="nx">define</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">require</span><span class="p">,</span><span class="nx">exports</span><span class="p">,</span><span class="nx">module</span><span class="p">){</span>
-</span><span class='line'>  <span class="c1">//载入依赖js文件DOM.js</span>
-</span><span class='line'>  <span class="kd">var</span> <span class="nx">DOM</span><span class="o">=</span><span class="nx">require</span><span class="p">(</span><span class="s2">&quot;DOM/DOM&quot;</span><span class="p">);</span>
-</span><span class='line'>  <span class="c1">//载入依赖样式文件sayHello.css</span>
-</span><span class='line'>  <span class="nx">require</span><span class="p">(</span><span class="s2">&quot;sayHelloA/sayHello.css&quot;</span><span class="p">);</span>
+</span><span class='line'>  <span class="c1">//载入依赖js文件ajax.js</span>
+</span><span class='line'>  <span class="kd">var</span> <span class="nx">S</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">&quot;moudle/ajax&quot;</span><span class="p">);</span>
+</span><span class='line'>  <span class="c1">//载入依赖样式文件alert.css</span>
+</span><span class='line'>  <span class="nx">require</span><span class="p">(</span><span class="s2">&quot;moudle/ajax.css&quot;</span><span class="p">);</span>
 </span><span class='line'>  <span class="c1">//向外提供API</span>
-</span><span class='line'>  <span class="nx">exports</span><span class="p">.</span><span class="nx">sayHello</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">eleID</span><span class="p">,</span><span class="nx">text</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>  <span class="nx">exports</span><span class="p">.</span><span class="nx">getHTML</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">url</span><span class="p">)</span> <span class="p">{</span>
 </span><span class='line'>      <span class="c1">//使用依赖js文件DOM.js方法</span>
-</span><span class='line'>      <span class="nx">DOM</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="nx">eleID</span><span class="p">).</span><span class="nx">innerHTML</span><span class="o">=</span><span class="nx">text</span><span class="p">;</span>
+</span><span class='line'>      <span class="nb">document</span><span class="p">.</span><span class="nx">body</span><span class="p">.</span><span class="nx">oncilck</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(){</span>
+</span><span class='line'>            <span class="nx">S</span><span class="p">.</span><span class="nx">ajax</span><span class="p">(</span><span class="nx">url</span><span class="p">);</span>
+</span><span class='line'>        <span class="p">}</span>
 </span><span class='line'>  <span class="p">};</span>
 </span><span class='line'><span class="p">});</span>
 </span></code></pre></td></tr></table></div></figure>
 
 
+<h3>配置</h3>
 
+<p><a href="https://github.com/seajs/seajs/issues/262"><code>seajs.config</code></a></p>
+
+<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class='js'><span class='line'><span class="nx">seajs</span><span class="p">.</span><span class="nx">config</span><span class="p">({</span>
+</span><span class='line'>  <span class="nx">alias</span><span class="o">:</span> <span class="p">{</span>
+</span><span class='line'>    <span class="s1">&#39;app&#39;</span><span class="o">:</span> <span class="s1">&#39;http://path/to/app&#39;</span><span class="p">,</span>
+</span><span class='line'>    <span class="s1">&#39;jquery&#39;</span><span class="o">:</span> <span class="s1">&#39;gallery/jquery/1.8.2/jquery&#39;</span>
+</span><span class='line'>  <span class="p">}</span>
+</span><span class='line'><span class="p">});</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h3>CMD规范</h3>
+
+<p>seaJs遵守<a href="https://github.com/seajs/seajs/issues/242">CMD</a>模块定义规范，理解CMD对更好的理解seaJs有很大的帮助</p>
+
+<h3>spm</h3>
+
+<p>最强大的是seaJs配合<a href="https://github.com/spmjs/spm/wiki/Hello-spm%EF%BC%9A%E4%BD%BF%E7%94%A8-spm-%E5%92%8C-SeaJS-%E5%BC%80%E5%8F%91%E4%B8%80%E4%B8%AA%E4%B8%AD%E5%9E%8B%E9%A1%B9%E7%9B%AE">spm</a>使用完全解决了所谓的加载对性能的影响问题，开发人员可以专注到代码当中而不必考虑加载的相关事宜。</p>
+
+<hr />
+
+<p><strong>入门介绍完毕，下次详细讲解具体用法</strong></p>
 </div>
   
   
@@ -143,7 +267,7 @@
 
   
 
-<time datetime="2012-12-11T15:59:00+08:00" pubdate data-updated="true">2012年 12月 11日</time> | 
+<time datetime="2012-12-11T15:59:00+08:00" pubdate data-updated="true">2012年12月11日</time> | 
 
 <span class="categories">
   
@@ -185,7 +309,7 @@
 
   
 
-<time datetime="2012-12-08T00:58:00+08:00" pubdate data-updated="true">2012年 12月 08日</time> | 
+<time datetime="2012-12-08T00:58:00+08:00" pubdate data-updated="true">2012年12月08日</time> | 
 
 <span class="categories">
   
@@ -258,7 +382,7 @@
 
   
 
-<time datetime="2012-12-06T23:13:00+08:00" pubdate data-updated="true">2012年 12月 06日</time> | 
+<time datetime="2012-12-06T23:13:00+08:00" pubdate data-updated="true">2012年12月06日</time> | 
 
 <span class="categories">
   

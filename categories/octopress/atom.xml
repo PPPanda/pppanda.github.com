@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: Octopress | 屁熊猫的实验室]]></title>
-  <link href="http://pppanda.github.com/categories/octopress/atom.xml" rel="self"/>
-  <link href="http://pppanda.github.com/"/>
-  <updated>2012-12-13T21:52:18+08:00</updated>
-  <id>http://pppanda.github.com/</id>
+  <link href="http://PPPanda.github.com/categories/octopress/atom.xml" rel="self"/>
+  <link href="http://PPPanda.github.com/"/>
+  <updated>2012-12-17T23:35:06+08:00</updated>
+  <id>http://PPPanda.github.com/</id>
   <author>
     <name><![CDATA[PPanda]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[Octopress不同电脑发布文章]]></title>
-    <link href="http://pppanda.github.com/article/octopress-different-place.html"/>
+    <link href="http://PPPanda.github.com/article/octopress-different-place.html"/>
     <updated>2012-12-11T15:59:00+08:00</updated>
-    <id>http://pppanda.github.com/article/octopress-different-place</id>
+    <id>http://PPPanda.github.com/article/octopress-different-place</id>
     <content type="html"><![CDATA[<p>遇到一个问题：我有一台正常发布文章的电脑M，而我想在另外一条电脑W上也可以正常发布新文章，<code>rake deploy</code>后却无法提交，提示<em>Everything up-to-date</em>，google了一下发现问题是W电脑没有<code>rake setup_github_pages</code>配置正确的仓库，这里有一个讨厌的前提条件，W电脑必须使用代理才可以上网，而<strong>Git bash</strong>无法设置代理，这就导致无法正确配置Octopress，我尝试了很多方法都无法正常获取仓库信息，于是放弃这个方法。</p>
 
 <p>我只好去下载了Git小乌龟-<a href="http://code.google.com/p/tortoisegit/">tortoisegit</a>，像svn绿毛龟一样设置好代理，然后克隆线上仓库地址。这样就不能使用<code>rake deploy</code>来提交发布文章，只好使用比较二的先本地<code>rake generate</code>，然后<code>rake preview</code>,如果预览OK的话，就把/repo_PATH/public文件下文件复制到克隆好的文件中，最后就是正常<code>git add *</code>和<code>git push</code>，使用这种曲线救国的方式也能提交代码。在这种有代理的网络环境下还比较好使，正常情况下还是<code>rake deploy</code>靠谱。</p>
@@ -26,9 +26,9 @@
   
   <entry>
     <title type="html"><![CDATA[开始使用Octopress]]></title>
-    <link href="http://pppanda.github.com/article/new-blog-with-octopress.html"/>
+    <link href="http://PPPanda.github.com/article/new-blog-with-octopress.html"/>
     <updated>2012-12-08T00:58:00+08:00</updated>
-    <id>http://pppanda.github.com/article/new-blog-with-octopress</id>
+    <id>http://PPPanda.github.com/article/new-blog-with-octopress</id>
     <content type="html"><![CDATA[<p>用惯了<a href="http:wordpress.rog">wordpress</a>突然有一天我就在想：我为什要使用wordpress？在折腾wordpress的时候我忘记了博客的本质：<em>Write</em> and <em>Post</em> ，为了互动可以再加上评论功能。再看看如今的wordpress，已经变得非常臃肿，虽然有很多人依然选择wordpress作为最初建站的一个程序，但是我还是看到很多人离开了wordpress的阵营，因为一个经常写代码的童鞋最讨厌的就是臃肿的程序。</p>
 
 <p>作为一个会常写代码的屌丝我发现了<a href="http:octopress.org">Octopress</a>这个小章鱼，了解了小章鱼的使用方法后发现这玩意着实击中了我的G点，再加上可以混搭<a href="http:github.com">github</a>这神奇，尼玛，这就叫 <em>A blogging framework for hackers.</em> 么？</p>
@@ -649,9 +649,9 @@
   
   <entry>
     <title type="html"><![CDATA[hello world]]></title>
-    <link href="http://pppanda.github.com/article/hello-world.html"/>
+    <link href="http://PPPanda.github.com/article/hello-world.html"/>
     <updated>2012-12-06T23:13:00+08:00</updated>
-    <id>http://pppanda.github.com/article/hello-world</id>
+    <id>http://PPPanda.github.com/article/hello-world</id>
     <content type="html"><![CDATA[<h2>Hello World!</h2>
 
 <p>感觉没有这句经典的问候就像少了点什么</p>

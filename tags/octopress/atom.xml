@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Tag: Octopress | 屁熊猫的实验室]]></title>
-  <link href="http://pppanda.github.com/tags/octopress/atom.xml" rel="self"/>
-  <link href="http://pppanda.github.com/"/>
-  <updated>2012-12-13T21:52:18+08:00</updated>
-  <id>http://pppanda.github.com/</id>
+  <link href="http://PPPanda.github.com/tags/octopress/atom.xml" rel="self"/>
+  <link href="http://PPPanda.github.com/"/>
+  <updated>2012-12-17T23:35:06+08:00</updated>
+  <id>http://PPPanda.github.com/</id>
   <author>
     <name><![CDATA[PPanda]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[开始使用Octopress]]></title>
-    <link href="http://pppanda.github.com/article/new-blog-with-octopress.html"/>
+    <link href="http://PPPanda.github.com/article/new-blog-with-octopress.html"/>
     <updated>2012-12-08T00:58:00+08:00</updated>
-    <id>http://pppanda.github.com/article/new-blog-with-octopress</id>
+    <id>http://PPPanda.github.com/article/new-blog-with-octopress</id>
     <content type="html"><![CDATA[<p>用惯了<a href="http:wordpress.rog">wordpress</a>突然有一天我就在想：我为什要使用wordpress？在折腾wordpress的时候我忘记了博客的本质：<em>Write</em> and <em>Post</em> ，为了互动可以再加上评论功能。再看看如今的wordpress，已经变得非常臃肿，虽然有很多人依然选择wordpress作为最初建站的一个程序，但是我还是看到很多人离开了wordpress的阵营，因为一个经常写代码的童鞋最讨厌的就是臃肿的程序。</p>
 
 <p>作为一个会常写代码的屌丝我发现了<a href="http:octopress.org">Octopress</a>这个小章鱼，了解了小章鱼的使用方法后发现这玩意着实击中了我的G点，再加上可以混搭<a href="http:github.com">github</a>这神奇，尼玛，这就叫 <em>A blogging framework for hackers.</em> 么？</p>
@@ -638,9 +638,9 @@
   
   <entry>
     <title type="html"><![CDATA[hello world]]></title>
-    <link href="http://pppanda.github.com/article/hello-world.html"/>
+    <link href="http://PPPanda.github.com/article/hello-world.html"/>
     <updated>2012-12-06T23:13:00+08:00</updated>
-    <id>http://pppanda.github.com/article/hello-world</id>
+    <id>http://PPPanda.github.com/article/hello-world</id>
     <content type="html"><![CDATA[<h2>Hello World!</h2>
 
 <p>感觉没有这句经典的问候就像少了点什么</p>

@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[屁熊猫的实验室]]></title>
-  <link href="http://pppanda.github.com/atom.xml" rel="self"/>
-  <link href="http://pppanda.github.com/"/>
-  <updated>2012-12-13T21:52:18+08:00</updated>
-  <id>http://pppanda.github.com/</id>
+  <link href="http://PPPanda.github.com/atom.xml" rel="self"/>
+  <link href="http://PPPanda.github.com/"/>
+  <updated>2012-12-17T23:35:06+08:00</updated>
+  <id>http://PPPanda.github.com/</id>
   <author>
     <name><![CDATA[PPanda]]></name>
     
@@ -14,15 +14,35 @@
 
   
   <entry>
-    <title type="html"><![CDATA[seaJs使用方法]]></title>
-    <link href="http://pppanda.github.com/article/seajs-use.html"/>
+    <title type="html"><![CDATA[performance]]></title>
+    <link href="http://PPPanda.github.com/article/performance.html"/>
+    <updated>2012-12-17T14:38:00+08:00</updated>
+    <id>http://PPPanda.github.com/article/performance</id>
+    <content type="html"><![CDATA[<h2>js的载入</h2>
+
+<p>当浏览器从服务器接收到了HTML文档，并把HTML在内存中转换成DOM树，在转换的过程中如果发现某个节点(node)上引用了CSS或者IMAGE，就会再发1个request去请求CSS或image,然后继续执行下面的转换，而不需要等待request的返回，当request返回后，只需要把返回的内容放入到DOM树中对应的位置就OK。但当引用了JS的时候，浏览器发送1个js request就会一直等待该request的返回。因为浏览器需要1个稳定的DOM树结构，而JS中很有可能有代码直接改变了DOM树结构，比如使用document.write 或 appendChild,甚至是直接使用的location.href进行跳转，浏览器为了防止出现JS修改DOM树，需要重新构建DOM树的情况，所以就会阻塞其他的下载和呈现.</p>
+
+<p>因为浏览器会维持html中css和js的顺序，样式表必须在嵌入的JS执行前先加载、解析完。而嵌入的JS会阻塞后面的资源加载，所以就会出现上面CSS阻塞下载的情况。</p>
+
+<p>js放在样式前和样式后？</p>
+
+<p>放在底部，虽然放在底部照样会阻塞所有呈现，但不会阻塞资源下载</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[seaJs入门简介]]></title>
+    <link href="http://PPPanda.github.com/article/seajs-use.html"/>
     <updated>2012-12-12T16:14:00+08:00</updated>
-    <id>http://pppanda.github.com/article/seajs-use</id>
+    <id>http://PPPanda.github.com/article/seajs-use</id>
     <content type="html"><![CDATA[<h2>seaJs是啥子</h2>
 
-<p>SeaJS 是由玉伯开发的一个遵循 CommonJS 规范的模块加载框架，可用来轻松愉悦地加载任意 JavaScript 模块和css模块样式。SeaJS非常小巧，小巧在于压缩和gzip后体积只有4K,而且接口和方法也非常少，SeaJS 就两个核心：模块定义和 模块的加载及依赖关系。SeaJS非常强大，SeaJS可以加载任意 JavaScript 模块和css模块样式，SeaJS会保证你在使用一个模块时,已经将所依赖的其他模块载入到脚本运行环境中。玉伯的说法，SeaJS可以让你享受写代码的乐趣，不用去管那些加载的问题。</p>
+<blockquote><p>SeaJS 是由玉伯开发的一个遵循 CommonJS 规范的模块加载框架，可用来轻松愉悦地加载任意 JavaScript 模块和css模块样式。SeaJS非常小巧，小巧在于压缩和gzip后体积只有4K,而且接口和方法也非常少，SeaJS 就两个核心：模块定义和 模块的加载及依赖关系。SeaJS非常强大，SeaJS可以加载任意 JavaScript 模块和css模块样式，SeaJS会保证你在使用一个模块时,已经将所依赖的其他模块载入到脚本运行环境中。玉伯的说法，SeaJS可以让你享受写代码的乐趣，不用去管那些加载的问题。</p>
 
-<p>感觉有些像YUI的用到即载入的思想</p>
+<p>SeaJS 是一个适用于 Web 浏览器端的模块加载器。在 SeaJS 里，一切皆是模块，所有模块协同构建成模块系统。SeaJS 首要要解决的是模块系统的基本问题：
+在前端开发领域，一个模块，可以是JS 模块，也可以是 CSS 模块，或是 Template 等模块。在 SeaJS 里，我们专注于 JS 模块（其他类型的模块可以转换为 JS 模块）</p></blockquote>
+
+<p>使用SeaJs会改变正常引入js文件的方式,不需要使用<code>&lt;script src="script.js"&gt;&lt;/script&gt;</code>引入js文件，而是使用<code>require</code>引入所依赖js文件，每个功能模块所承担的功能和依赖的js文件一目了然，然后就是Enjoy coding了。</p>
 
 <h3>定义模块</h3>
 
@@ -32,16 +52,50 @@
 <span class='line-number'>4</span>
 <span class='line-number'>5</span>
 <span class='line-number'>6</span>
-</pre></td><td class='code'><pre><code class='js'><span class='line'><span class="nx">define</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">require</span><span class="p">,</span><span class="nx">exports</span><span class="p">,</span><span class="nx">module</span><span class="p">){</span>
-</span><span class='line'><span class="c1">// 使用exports导出模块接口，而非返回一个对象</span>
-</span><span class='line'>    <span class="nx">exports</span><span class="p">.</span><span class="nx">sayHello</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">eleID</span><span class="p">,</span><span class="nx">text</span><span class="p">)</span> <span class="p">{</span>
-</span><span class='line'>        <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="nx">eleID</span><span class="p">).</span><span class="nx">innerHTML</span><span class="o">=</span><span class="nx">text</span><span class="p">;</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+</pre></td><td class='code'><pre><code class='js'><span class='line'><span class="c1">//define 模块基本factory参数用法 </span>
+</span><span class='line'><span class="nx">define</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">require</span><span class="p">,</span><span class="nx">exports</span><span class="p">,</span><span class="nx">module</span><span class="p">){</span>
+</span><span class='line'>    <span class="nx">exports</span><span class="p">.</span><span class="nx">Fn</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">para</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>        <span class="c1">//do Something</span>
 </span><span class='line'>    <span class="p">};</span>
+</span><span class='line'><span class="p">});</span>
+</span><span class='line'>
+</span><span class='line'><span class="nx">define</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">require</span><span class="p">,</span> <span class="nx">exports</span><span class="p">,</span> <span class="nx">module</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>    <span class="kd">var</span> <span class="nx">$</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;jquery&#39;</span><span class="p">);</span> <span class="c1">//引入jquery模块</span>
+</span><span class='line'>    <span class="kd">var</span> <span class="nx">ST</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;sntouch&#39;</span><span class="p">);</span> <span class="c1">//引入sntouch模块</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="kd">var</span> <span class="nx">data1</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="c1">//私有数据</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="kd">var</span> <span class="nx">func1</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span> <span class="c1">//私有方法</span>
+</span><span class='line'>        <span class="k">return</span> <span class="s1">&#39;func1&#39;</span>
+</span><span class='line'>    <span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="nx">exports</span><span class="p">.</span><span class="nx">data2</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span> <span class="c1">//公共数据</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="nx">exports</span><span class="p">.</span><span class="nx">func2</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">str</span><span class="p">)</span> <span class="p">{</span> <span class="c1">//公共方法</span>
+</span><span class='line'>        <span class="nx">alert</span><span class="p">(</span><span class="nx">str</span><span class="p">)</span>
+</span><span class='line'>    <span class="p">}</span>
 </span><span class='line'><span class="p">});</span>
 </span></code></pre></td></tr></table></div></figure>
 
 
-<p>exports参数是用来向外提供模块的 API.也就是通过这个exports其他的模块就能访问sayHello方法。</p>
+<p>exports参数是用来向外提供模块的 API.也就是通过这个exports其他的模块就能访问func2方法。</p>
 
 <h3>加载模块</h3>
 
@@ -51,8 +105,8 @@
 <figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
-</pre></td><td class='code'><pre><code class='js'><span class='line'><span class="nx">seajs</span><span class="p">.</span><span class="nx">use</span><span class="p">(</span><span class="s2">&quot;sayHello/sayHello&quot;</span><span class="p">,</span><span class="kd">function</span><span class="p">(</span><span class="nx">say</span><span class="p">){</span>
-</span><span class='line'>  <span class="nx">say</span><span class="p">.</span><span class="nx">sayHello</span><span class="p">(</span><span class="s2">&quot;out&quot;</span><span class="p">,</span><span class="s2">&quot;Hello SeaJS!&quot;</span><span class="p">);</span>
+</pre></td><td class='code'><pre><code class='js'><span class='line'><span class="nx">seajs</span><span class="p">.</span><span class="nx">use</span><span class="p">(</span><span class="s2">&quot;alias/main&quot;</span><span class="p">,</span><span class="kd">function</span><span class="p">(</span><span class="nx">s</span><span class="p">){</span>
+</span><span class='line'>  <span class="nx">s</span><span class="p">.</span><span class="nx">func2</span><span class="p">(</span><span class="s2">&quot;Hello SeaJS!&quot;</span><span class="p">);</span>
 </span><span class='line'><span class="p">});</span>
 </span></code></pre></td></tr></table></div></figure>
 
@@ -70,29 +124,62 @@
 <span class='line-number'>9</span>
 <span class='line-number'>10</span>
 <span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
 </pre></td><td class='code'><pre><code class='js'><span class='line'><span class="nx">define</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">require</span><span class="p">,</span><span class="nx">exports</span><span class="p">,</span><span class="nx">module</span><span class="p">){</span>
-</span><span class='line'>  <span class="c1">//载入依赖js文件DOM.js</span>
-</span><span class='line'>  <span class="kd">var</span> <span class="nx">DOM</span><span class="o">=</span><span class="nx">require</span><span class="p">(</span><span class="s2">&quot;DOM/DOM&quot;</span><span class="p">);</span>
-</span><span class='line'>  <span class="c1">//载入依赖样式文件sayHello.css</span>
-</span><span class='line'>  <span class="nx">require</span><span class="p">(</span><span class="s2">&quot;sayHelloA/sayHello.css&quot;</span><span class="p">);</span>
+</span><span class='line'>  <span class="c1">//载入依赖js文件ajax.js</span>
+</span><span class='line'>  <span class="kd">var</span> <span class="nx">S</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">&quot;moudle/ajax&quot;</span><span class="p">);</span>
+</span><span class='line'>  <span class="c1">//载入依赖样式文件alert.css</span>
+</span><span class='line'>  <span class="nx">require</span><span class="p">(</span><span class="s2">&quot;moudle/ajax.css&quot;</span><span class="p">);</span>
 </span><span class='line'>  <span class="c1">//向外提供API</span>
-</span><span class='line'>  <span class="nx">exports</span><span class="p">.</span><span class="nx">sayHello</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">eleID</span><span class="p">,</span><span class="nx">text</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>  <span class="nx">exports</span><span class="p">.</span><span class="nx">getHTML</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">url</span><span class="p">)</span> <span class="p">{</span>
 </span><span class='line'>      <span class="c1">//使用依赖js文件DOM.js方法</span>
-</span><span class='line'>      <span class="nx">DOM</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="nx">eleID</span><span class="p">).</span><span class="nx">innerHTML</span><span class="o">=</span><span class="nx">text</span><span class="p">;</span>
+</span><span class='line'>      <span class="nb">document</span><span class="p">.</span><span class="nx">body</span><span class="p">.</span><span class="nx">oncilck</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(){</span>
+</span><span class='line'>            <span class="nx">S</span><span class="p">.</span><span class="nx">ajax</span><span class="p">(</span><span class="nx">url</span><span class="p">);</span>
+</span><span class='line'>        <span class="p">}</span>
 </span><span class='line'>  <span class="p">};</span>
 </span><span class='line'><span class="p">});</span>
 </span></code></pre></td></tr></table></div></figure>
 
 
+<h3>配置</h3>
 
+<p><a href="https://github.com/seajs/seajs/issues/262"><code>seajs.config</code></a></p>
+
+<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class='js'><span class='line'><span class="nx">seajs</span><span class="p">.</span><span class="nx">config</span><span class="p">({</span>
+</span><span class='line'>  <span class="nx">alias</span><span class="o">:</span> <span class="p">{</span>
+</span><span class='line'>    <span class="s1">&#39;app&#39;</span><span class="o">:</span> <span class="s1">&#39;http://path/to/app&#39;</span><span class="p">,</span>
+</span><span class='line'>    <span class="s1">&#39;jquery&#39;</span><span class="o">:</span> <span class="s1">&#39;gallery/jquery/1.8.2/jquery&#39;</span>
+</span><span class='line'>  <span class="p">}</span>
+</span><span class='line'><span class="p">});</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h3>CMD规范</h3>
+
+<p>seaJs遵守<a href="https://github.com/seajs/seajs/issues/242">CMD</a>模块定义规范，理解CMD对更好的理解seaJs有很大的帮助</p>
+
+<h3>spm</h3>
+
+<p>最强大的是seaJs配合<a href="https://github.com/spmjs/spm/wiki/Hello-spm%EF%BC%9A%E4%BD%BF%E7%94%A8-spm-%E5%92%8C-SeaJS-%E5%BC%80%E5%8F%91%E4%B8%80%E4%B8%AA%E4%B8%AD%E5%9E%8B%E9%A1%B9%E7%9B%AE">spm</a>使用完全解决了所谓的加载对性能的影响问题，开发人员可以专注到代码当中而不必考虑加载的相关事宜。</p>
+
+<hr />
+
+<p><strong>入门介绍完毕，下次详细讲解具体用法</strong></p>
 ]]></content>
   </entry>
   
   <entry>
     <title type="html"><![CDATA[Octopress不同电脑发布文章]]></title>
-    <link href="http://pppanda.github.com/article/octopress-different-place.html"/>
+    <link href="http://PPPanda.github.com/article/octopress-different-place.html"/>
     <updated>2012-12-11T15:59:00+08:00</updated>
-    <id>http://pppanda.github.com/article/octopress-different-place</id>
+    <id>http://PPPanda.github.com/article/octopress-different-place</id>
     <content type="html"><![CDATA[<p>遇到一个问题：我有一台正常发布文章的电脑M，而我想在另外一条电脑W上也可以正常发布新文章，<code>rake deploy</code>后却无法提交，提示<em>Everything up-to-date</em>，google了一下发现问题是W电脑没有<code>rake setup_github_pages</code>配置正确的仓库，这里有一个讨厌的前提条件，W电脑必须使用代理才可以上网，而<strong>Git bash</strong>无法设置代理，这就导致无法正确配置Octopress，我尝试了很多方法都无法正常获取仓库信息，于是放弃这个方法。</p>
 
 <p>我只好去下载了Git小乌龟-<a href="http://code.google.com/p/tortoisegit/">tortoisegit</a>，像svn绿毛龟一样设置好代理，然后克隆线上仓库地址。这样就不能使用<code>rake deploy</code>来提交发布文章，只好使用比较二的先本地<code>rake generate</code>，然后<code>rake preview</code>,如果预览OK的话，就把/repo_PATH/public文件下文件复制到克隆好的文件中，最后就是正常<code>git add *</code>和<code>git push</code>，使用这种曲线救国的方式也能提交代码。在这种有代理的网络环境下还比较好使，正常情况下还是<code>rake deploy</code>靠谱。</p>
@@ -101,9 +188,9 @@
   
   <entry>
     <title type="html"><![CDATA[开始使用Octopress]]></title>
-    <link href="http://pppanda.github.com/article/new-blog-with-octopress.html"/>
+    <link href="http://PPPanda.github.com/article/new-blog-with-octopress.html"/>
     <updated>2012-12-08T00:58:00+08:00</updated>
-    <id>http://pppanda.github.com/article/new-blog-with-octopress</id>
+    <id>http://PPPanda.github.com/article/new-blog-with-octopress</id>
     <content type="html"><![CDATA[<p>用惯了<a href="http:wordpress.rog">wordpress</a>突然有一天我就在想：我为什要使用wordpress？在折腾wordpress的时候我忘记了博客的本质：<em>Write</em> and <em>Post</em> ，为了互动可以再加上评论功能。再看看如今的wordpress，已经变得非常臃肿，虽然有很多人依然选择wordpress作为最初建站的一个程序，但是我还是看到很多人离开了wordpress的阵营，因为一个经常写代码的童鞋最讨厌的就是臃肿的程序。</p>
 
 <p>作为一个会常写代码的屌丝我发现了<a href="http:octopress.org">Octopress</a>这个小章鱼，了解了小章鱼的使用方法后发现这玩意着实击中了我的G点，再加上可以混搭<a href="http:github.com">github</a>这神奇，尼玛，这就叫 <em>A blogging framework for hackers.</em> 么？</p>
@@ -729,9 +816,9 @@
   
   <entry>
     <title type="html"><![CDATA[hello world]]></title>
-    <link href="http://pppanda.github.com/article/hello-world.html"/>
+    <link href="http://PPPanda.github.com/article/hello-world.html"/>
     <updated>2012-12-06T23:13:00+08:00</updated>
-    <id>http://pppanda.github.com/article/hello-world</id>
+    <id>http://PPPanda.github.com/article/hello-world</id>
     <content type="html"><![CDATA[<h2>Hello World!</h2>
 
 <p>感觉没有这句经典的问候就像少了点什么</p>
