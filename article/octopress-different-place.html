@@ -60,7 +60,11 @@
 
 <div class="entry-content"><p>遇到一个问题：我有一台正常发布文章的电脑M，而我想在另外一条电脑W上也可以正常发布新文章，<code>rake deploy</code>后却无法提交，提示<em>Everything up-to-date</em>，google了一下发现问题是W电脑没有<code>rake setup_github_pages</code>配置正确的仓库，这里有一个讨厌的前提条件，W电脑必须使用代理才可以上网，而<strong>Git bash</strong>无法设置代理，这就导致无法正确配置Octopress，我尝试了很多方法都无法正常获取仓库信息，于是放弃这个方法。</p>
 
-<p>我只好去下载了Git小乌龟-<a href="http://code.google.com/p/tortoisegit/">tortoisegit</a>，像svn绿毛龟一样设置好代理，然后克隆线上仓库地址。这样就不能使用<code>rake deploy</code>来提交发布文章，只好使用比较二的先本地<code>rake generate</code>，然后<code>rake preview</code>,如果预览OK的话，就把/repo_PATH/public文件下文件复制到克隆好的文件中，最后就是正常<code>git add *</code>和<code>git push</code>，使用这种曲线救国的方式也能提交代码。在这种有代理的网络环境下还比较好使，正常情况下还是<code>rake deploy</code>靠谱。</p>
+<p>我只好去下载了Git小乌龟-<a href="http://code.google.com/p/tortoisegit/">tortoisegit</a>，因为绿毛龟可以设置代理。设置好代理之后就可以正常使用bash了，然后做你喜欢做的事情吧。</p>
+
+<p>当然也可以不使用<code>rake deploy</code>来提交发布文章，使用比较二的先本地<code>rake generate</code>，然后<code>rake preview</code>,如果预览OK的话，就把/repo_PATH/public文件下文件复制到克隆好的文件中，最后就是正常<code>git add *</code> <code>git commit -m "some words"</code> 和<code>git push</code>，使用这种曲线救国的方式也能提交代码。</p>
+
+<p>两种方式，都可以正常提交，关键是这个代理确实很讨厌。擦嘞!</p>
 </div>
 
 <hr/>
@@ -69,7 +73,7 @@
   <ul id="recent_posts" class="fix">
     
       <li class="post">
-        <a href="/article/performance.html">+ performance</a>
+        <a href="/article/javascript-patterns.html">+ javascript代码设计浅析</a>
       </li>
     
       <li class="post">
@@ -141,7 +145,7 @@ var duoshuoQuery = {short_name:"ppanda"};
 
 </div>
 <footer id="footer" role="contentinfo"><p style="font-size:12px;">
-  Copyright &copy; 2012 - by <a style="color:#EA5246;" target="_blank" href="http://ppanda.com/what-am-i-in-they-eyes.html">PPanda</a> <a target="_blank" href="http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&amp;email=PAoEDg8ECQgPfE1NEl9TUQ" style="text-decoration:none;">给我写信</a>
+  Copyright &copy; 2013 - by <a style="color:#EA5246;" target="_blank" href="http://ppanda.com/what-am-i-in-they-eyes.html">PPanda</a> <a target="_blank" href="http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&amp;email=PAoEDg8ECQgPfE1NEl9TUQ" style="text-decoration:none;">给我写信</a>
 </p>
 </footer>
 </body>

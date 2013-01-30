@@ -128,7 +128,7 @@
 <h3>加载模块</h3>
 
 <p>先引入sea.js
-然后使用sayHello模块：</p>
+使用sayHello模块：</p>
 
 <figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
@@ -141,7 +141,7 @@
 
 <h3>模块的依赖关系</h3>
 
-<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<figure class='code'><figcaption><span>小例子 </span><a href='http://lab.ppanda.com/demo/seajs.html'>Demo </a></figcaption> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
@@ -154,18 +154,24 @@
 <span class='line-number'>11</span>
 <span class='line-number'>12</span>
 <span class='line-number'>13</span>
-</pre></td><td class='code'><pre><code class='js'><span class='line'><span class="nx">define</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">require</span><span class="p">,</span><span class="nx">exports</span><span class="p">,</span><span class="nx">module</span><span class="p">){</span>
-</span><span class='line'>  <span class="c1">//载入依赖js文件ajax.js</span>
-</span><span class='line'>  <span class="kd">var</span> <span class="nx">S</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">&quot;moudle/ajax&quot;</span><span class="p">);</span>
-</span><span class='line'>  <span class="c1">//载入依赖样式文件alert.css</span>
-</span><span class='line'>  <span class="nx">require</span><span class="p">(</span><span class="s2">&quot;moudle/ajax.css&quot;</span><span class="p">);</span>
-</span><span class='line'>  <span class="c1">//向外提供API</span>
-</span><span class='line'>  <span class="nx">exports</span><span class="p">.</span><span class="nx">getHTML</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">url</span><span class="p">)</span> <span class="p">{</span>
-</span><span class='line'>      <span class="c1">//使用依赖js文件DOM.js方法</span>
-</span><span class='line'>      <span class="nb">document</span><span class="p">.</span><span class="nx">body</span><span class="p">.</span><span class="nx">oncilck</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(){</span>
-</span><span class='line'>            <span class="nx">S</span><span class="p">.</span><span class="nx">ajax</span><span class="p">(</span><span class="nx">url</span><span class="p">);</span>
-</span><span class='line'>        <span class="p">}</span>
-</span><span class='line'>  <span class="p">};</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+</pre></td><td class='code'><pre><code class='js'><span class='line'><span class="nx">define</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">require</span><span class="p">,</span> <span class="nx">exports</span><span class="p">,</span> <span class="nx">module</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>    <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;base_book&#39;</span><span class="p">);</span> <span class="c1">//引入一个小js库</span>
+</span><span class='line'>    <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;../../stylesheets/filter.css&#39;</span><span class="p">)</span>
+</span><span class='line'>    <span class="kd">var</span> <span class="nx">data1</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="c1">//私有数据</span>
+</span><span class='line'>    <span class="kd">var</span> <span class="nx">id</span> <span class="o">=</span> <span class="s2">&quot;#search_box&quot;</span><span class="p">;</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="nx">exports</span><span class="p">.</span><span class="nx">data2</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span> <span class="c1">//公共数据</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="nx">exports</span><span class="p">.</span><span class="nx">func2</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">str</span><span class="p">)</span> <span class="p">{</span> <span class="c1">//公共方法</span>
+</span><span class='line'>        <span class="nx">alert</span><span class="p">(</span><span class="nx">str</span><span class="p">)</span>
+</span><span class='line'>    <span class="p">}</span>
+</span><span class='line'>    <span class="nx">exports</span><span class="p">.</span><span class="nx">filter</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(){</span>
+</span><span class='line'>        <span class="nx">ST</span><span class="p">.</span><span class="nx">Widget</span><span class="p">.</span><span class="nx">SearchPop</span><span class="p">(</span><span class="nx">id</span><span class="p">,</span><span class="s2">&quot;a&quot;</span><span class="p">);</span>
+</span><span class='line'>        <span class="nx">ST</span><span class="p">.</span><span class="nx">Widget</span><span class="p">.</span><span class="nx">Shake</span><span class="p">()</span>
+</span><span class='line'>    <span class="p">}</span>
 </span><span class='line'><span class="p">});</span>
 </span></code></pre></td></tr></table></div></figure>
 
@@ -208,7 +214,7 @@
   <ul id="recent_posts" class="fix">
     
       <li class="post">
-        <a href="/article/performance.html">+ performance</a>
+        <a href="/article/javascript-patterns.html">+ javascript代码设计浅析</a>
       </li>
     
       <li class="post">
@@ -244,7 +250,7 @@
         <a class="basic-alignment left" href="/article/octopress-different-place.html" title="Previous Post: Octopress不同电脑发布文章">&laquo; Octopress不同电脑发布文章</a>
       
       
-        <a class="basic-alignment right" href="/article/performance.html" title="Next Post: performance">performance &raquo;</a>
+        <a class="basic-alignment right" href="/article/javascript-patterns.html" title="Next Post: javascript代码设计浅析">javascript代码设计浅析 &raquo;</a>
       
     </p>
   </footer>
@@ -286,7 +292,7 @@ var duoshuoQuery = {short_name:"ppanda"};
 
 </div>
 <footer id="footer" role="contentinfo"><p style="font-size:12px;">
-  Copyright &copy; 2012 - by <a style="color:#EA5246;" target="_blank" href="http://ppanda.com/what-am-i-in-they-eyes.html">PPanda</a> <a target="_blank" href="http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&amp;email=PAoEDg8ECQgPfE1NEl9TUQ" style="text-decoration:none;">给我写信</a>
+  Copyright &copy; 2013 - by <a style="color:#EA5246;" target="_blank" href="http://ppanda.com/what-am-i-in-they-eyes.html">PPanda</a> <a target="_blank" href="http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&amp;email=PAoEDg8ECQgPfE1NEl9TUQ" style="text-decoration:none;">给我写信</a>
 </p>
 </footer>
 </body>

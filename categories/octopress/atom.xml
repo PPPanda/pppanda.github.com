@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Octopress | 屁熊猫的实验室]]></title>
   <link href="http://PPPanda.github.com/categories/octopress/atom.xml" rel="self"/>
   <link href="http://PPPanda.github.com/"/>
-  <updated>2013-01-02T16:37:17+08:00</updated>
+  <updated>2013-01-30T19:26:06+08:00</updated>
   <id>http://PPPanda.github.com/</id>
   <author>
     <name><![CDATA[PPanda]]></name>
@@ -22,7 +22,7 @@
 
 <p>我只好去下载了Git小乌龟-<a href="http://code.google.com/p/tortoisegit/">tortoisegit</a>，因为绿毛龟可以设置代理。设置好代理之后就可以正常使用bash了，然后做你喜欢做的事情吧。</p>
 
-<p>当然也可以不使用<code>rake deploy</code>来提交发布文章，使用比较二的先本地<code>rake generate</code>，然后<code>rake preview</code>,如果预览OK的话，就把/repo_PATH/public文件下文件复制到克隆好的文件中，最后就是正常<code>git add *</code>和<code>git push</code>，使用这种曲线救国的方式也能提交代码。</p>
+<p>当然也可以不使用<code>rake deploy</code>来提交发布文章，使用比较二的先本地<code>rake generate</code>，然后<code>rake preview</code>,如果预览OK的话，就把/repo_PATH/public文件下文件复制到克隆好的文件中，最后就是正常<code>git add *</code> <code>git commit -m "some words"</code> 和<code>git push</code>，使用这种曲线救国的方式也能提交代码。</p>
 
 <p>两种方式，都可以正常提交，关键是这个代理确实很讨厌。擦嘞!</p>
 ]]></content>
@@ -645,9 +645,9 @@
 </ul>
 
 
-<p>{% codeblock lang:js %}
-//enjoy your codding life
-{% endcodeblock %}</p>
+<p><div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='js'><span class='line'><span class="c1">//enjoy your codding life</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div></p>
 ]]></content>
   </entry>
   

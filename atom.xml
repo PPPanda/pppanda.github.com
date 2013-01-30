@@ -4,7 +4,7 @@
   <title><![CDATA[屁熊猫的实验室]]></title>
   <link href="http://PPPanda.github.com/atom.xml" rel="self"/>
   <link href="http://PPPanda.github.com/"/>
-  <updated>2012-12-18T22:58:09+08:00</updated>
+  <updated>2013-01-30T19:26:06+08:00</updated>
   <id>http://PPPanda.github.com/</id>
   <author>
     <name><![CDATA[PPanda]]></name>
@@ -14,19 +14,42 @@
 
   
   <entry>
-    <title type="html"><![CDATA[performance]]></title>
-    <link href="http://PPPanda.github.com/article/performance.html"/>
-    <updated>2012-12-17T14:38:00+08:00</updated>
-    <id>http://PPPanda.github.com/article/performance</id>
-    <content type="html"><![CDATA[<h2>js的载入</h2>
+    <title type="html"><![CDATA[javascript代码设计浅析]]></title>
+    <link href="http://PPPanda.github.com/article/javascript-patterns.html"/>
+    <updated>2013-01-30T15:46:00+08:00</updated>
+    <id>http://PPPanda.github.com/article/javascript-patterns</id>
+    <content type="html"><![CDATA[<p>内部讨论了一下代码设计模式方面的内容,这里说一下自己的思路吧.</p>
 
-<p>当浏览器从服务器接收到了HTML文档，并把HTML在内存中转换成DOM树，在转换的过程中如果发现某个节点(node)上引用了CSS或者IMAGE，就会再发1个request去请求CSS或image,然后继续执行下面的转换，而不需要等待request的返回，当request返回后，只需要把返回的内容放入到DOM树中对应的位置就OK。但当引用了JS的时候，浏览器发送1个js request就会一直等待该request的返回。因为浏览器需要1个稳定的DOM树结构，而JS中很有可能有代码直接改变了DOM树结构，比如使用document.write 或 appendChild,甚至是直接使用的location.href进行跳转，浏览器为了防止出现JS修改DOM树，需要重新构建DOM树的情况，所以就会阻塞其他的下载和呈现.</p>
+<h3>单例模式</h3>
 
-<p>因为浏览器会维持html中css和js的顺序，样式表必须在嵌入的JS执行前先加载、解析完。而嵌入的JS会阻塞后面的资源加载，所以就会出现上面CSS阻塞下载的情况。</p>
+<blockquote><p>定义 - 单件模式确保一个类只有一个实例，并且提供一个全局访问点。</p></blockquote>
 
-<p>js放在样式前和样式后？</p>
+<p>在javascript中通常我们会创建一个命名空间来包含所有的功能代码. 个人认为单例模式的好处就是可以在多人开发时避免代码的冲突,还可以更好的控制页面里的功能.</p>
 
-<p>放在底部，虽然放在底部照样会阻塞所有呈现，但不会阻塞资源下载</p>
+<figure class='code'><figcaption><span>单例模式  </span></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+</pre></td><td class='code'><pre><code class='js'><span class='line'><span class="kd">var</span> <span class="nx">SNTouch</span> <span class="o">=</span> <span class="p">{</span>
+</span><span class='line'>  <span class="nx">Version</span><span class="o">:</span> <span class="s2">&quot;0.7&quot;</span><span class="p">,</span>
+</span><span class='line'>  <span class="nx">Author</span><span class="o">:</span> <span class="s2">&quot;PPanda&quot;</span><span class="p">,</span>
+</span><span class='line'>  <span class="nx">init</span><span class="o">:</span> <span class="kd">function</span><span class="p">(){},</span>
+</span><span class='line'>  <span class="nx">Widget</span><span class="o">:</span> <span class="p">{}</span>
+</span><span class='line'>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h3>工厂模式</h3>
+
+<blockquote><p>定义 - <em>抽象工厂模式</em>是每个抽象产品派生多个具体产品类，每个抽象工厂派生多个具体工厂类，每个具体工厂负责多个（一系列）具体产品的实例创建。<em>工厂方法模式</em>是每个抽象产品派生多个具体产品类，每个抽象工厂类派生多个具体工厂类，每个具体工厂类负责一个具体产品的实例创建。</p></blockquote>
+
+<!--more -->
+
 ]]></content>
   </entry>
   
@@ -105,7 +128,7 @@
 <h3>加载模块</h3>
 
 <p>先引入sea.js
-然后使用sayHello模块：</p>
+使用sayHello模块：</p>
 
 <figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
@@ -118,7 +141,7 @@
 
 <h3>模块的依赖关系</h3>
 
-<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<figure class='code'><figcaption><span>小例子 </span><a href='http://lab.ppanda.com/demo/seajs.html'>Demo </a></figcaption> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
@@ -131,18 +154,24 @@
 <span class='line-number'>11</span>
 <span class='line-number'>12</span>
 <span class='line-number'>13</span>
-</pre></td><td class='code'><pre><code class='js'><span class='line'><span class="nx">define</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">require</span><span class="p">,</span><span class="nx">exports</span><span class="p">,</span><span class="nx">module</span><span class="p">){</span>
-</span><span class='line'>  <span class="c1">//载入依赖js文件ajax.js</span>
-</span><span class='line'>  <span class="kd">var</span> <span class="nx">S</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">&quot;moudle/ajax&quot;</span><span class="p">);</span>
-</span><span class='line'>  <span class="c1">//载入依赖样式文件alert.css</span>
-</span><span class='line'>  <span class="nx">require</span><span class="p">(</span><span class="s2">&quot;moudle/ajax.css&quot;</span><span class="p">);</span>
-</span><span class='line'>  <span class="c1">//向外提供API</span>
-</span><span class='line'>  <span class="nx">exports</span><span class="p">.</span><span class="nx">getHTML</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">url</span><span class="p">)</span> <span class="p">{</span>
-</span><span class='line'>      <span class="c1">//使用依赖js文件DOM.js方法</span>
-</span><span class='line'>      <span class="nb">document</span><span class="p">.</span><span class="nx">body</span><span class="p">.</span><span class="nx">oncilck</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(){</span>
-</span><span class='line'>            <span class="nx">S</span><span class="p">.</span><span class="nx">ajax</span><span class="p">(</span><span class="nx">url</span><span class="p">);</span>
-</span><span class='line'>        <span class="p">}</span>
-</span><span class='line'>  <span class="p">};</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+</pre></td><td class='code'><pre><code class='js'><span class='line'><span class="nx">define</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">require</span><span class="p">,</span> <span class="nx">exports</span><span class="p">,</span> <span class="nx">module</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>    <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;base_book&#39;</span><span class="p">);</span> <span class="c1">//引入一个小js库</span>
+</span><span class='line'>    <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;../../stylesheets/filter.css&#39;</span><span class="p">)</span>
+</span><span class='line'>    <span class="kd">var</span> <span class="nx">data1</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="c1">//私有数据</span>
+</span><span class='line'>    <span class="kd">var</span> <span class="nx">id</span> <span class="o">=</span> <span class="s2">&quot;#search_box&quot;</span><span class="p">;</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="nx">exports</span><span class="p">.</span><span class="nx">data2</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span> <span class="c1">//公共数据</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="nx">exports</span><span class="p">.</span><span class="nx">func2</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">str</span><span class="p">)</span> <span class="p">{</span> <span class="c1">//公共方法</span>
+</span><span class='line'>        <span class="nx">alert</span><span class="p">(</span><span class="nx">str</span><span class="p">)</span>
+</span><span class='line'>    <span class="p">}</span>
+</span><span class='line'>    <span class="nx">exports</span><span class="p">.</span><span class="nx">filter</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(){</span>
+</span><span class='line'>        <span class="nx">ST</span><span class="p">.</span><span class="nx">Widget</span><span class="p">.</span><span class="nx">SearchPop</span><span class="p">(</span><span class="nx">id</span><span class="p">,</span><span class="s2">&quot;a&quot;</span><span class="p">);</span>
+</span><span class='line'>        <span class="nx">ST</span><span class="p">.</span><span class="nx">Widget</span><span class="p">.</span><span class="nx">Shake</span><span class="p">()</span>
+</span><span class='line'>    <span class="p">}</span>
 </span><span class='line'><span class="p">});</span>
 </span></code></pre></td></tr></table></div></figure>
 
@@ -187,7 +216,11 @@
     <id>http://PPPanda.github.com/article/octopress-different-place</id>
     <content type="html"><![CDATA[<p>遇到一个问题：我有一台正常发布文章的电脑M，而我想在另外一条电脑W上也可以正常发布新文章，<code>rake deploy</code>后却无法提交，提示<em>Everything up-to-date</em>，google了一下发现问题是W电脑没有<code>rake setup_github_pages</code>配置正确的仓库，这里有一个讨厌的前提条件，W电脑必须使用代理才可以上网，而<strong>Git bash</strong>无法设置代理，这就导致无法正确配置Octopress，我尝试了很多方法都无法正常获取仓库信息，于是放弃这个方法。</p>
 
-<p>我只好去下载了Git小乌龟-<a href="http://code.google.com/p/tortoisegit/">tortoisegit</a>，像svn绿毛龟一样设置好代理，然后克隆线上仓库地址。这样就不能使用<code>rake deploy</code>来提交发布文章，只好使用比较二的先本地<code>rake generate</code>，然后<code>rake preview</code>,如果预览OK的话，就把/repo_PATH/public文件下文件复制到克隆好的文件中，最后就是正常<code>git add *</code>和<code>git push</code>，使用这种曲线救国的方式也能提交代码。在这种有代理的网络环境下还比较好使，正常情况下还是<code>rake deploy</code>靠谱。</p>
+<p>我只好去下载了Git小乌龟-<a href="http://code.google.com/p/tortoisegit/">tortoisegit</a>，因为绿毛龟可以设置代理。设置好代理之后就可以正常使用bash了，然后做你喜欢做的事情吧。</p>
+
+<p>当然也可以不使用<code>rake deploy</code>来提交发布文章，使用比较二的先本地<code>rake generate</code>，然后<code>rake preview</code>,如果预览OK的话，就把/repo_PATH/public文件下文件复制到克隆好的文件中，最后就是正常<code>git add *</code> <code>git commit -m "some words"</code> 和<code>git push</code>，使用这种曲线救国的方式也能提交代码。</p>
+
+<p>两种方式，都可以正常提交，关键是这个代理确实很讨厌。擦嘞!</p>
 ]]></content>
   </entry>
   
