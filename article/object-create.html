@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Object.create创建对象 - 屁熊猫的实验室</title>
+  <meta name="author" content="PPanda">
+  <meta name="description" content="Object.create创建对象 Posted by PPanda | 2013年05月16日 | javascript | 查看评论 在JavaScript: The Good Parts这本书中给出了一个创建对象的常用方式： create 1
+2
+3
+4
+5
+6
+Object.create &hellip;">
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="canonical" href="http://PPPanda.github.com/article/object-create.html">
+  <link href="/favicon.ico" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/atom.xml" rel="alternate" title="屁熊猫的实验室" type="application/atom+xml">
+</head>
+<body   >
+<header id="header" role="banner"><hgroup>
+  <h1><a href="/">屁熊猫的实验室</a></h1>
+</hgroup>
+</header>
+<nav id="site-nav" role="navigation"><ul class="main-navigation fix">
+  <li><a href="/">Home</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+  <li><a href="/about">About</a></li>
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+</ul></nav>
+<script type="text/javascript">
+/*760*90，创建于2013-5-17*/
+var cpro_id = "u1285657";
+</script>
+<script src="http://cpro.baidustatic.com/cpro/ui/c.js" type="text/javascript"></script>
+<div id="content">
+  <article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">Object.create创建对象</h1>
+    
+    
+      <p class="meta">
+        
+  
+
+<span class="byline author vcard">Posted by <span class="fn">PPanda</span></span>
+ |      
+
+  
+
+<time datetime="2013-05-16T23:55:00+08:00" pubdate data-updated="true">2013年05月16日</time> | 
+
+<span class="categories">
+  
+    <a class='category' href='/categories/javascript/'>javascript</a>
+  
+</span>
+
+
+        
+        | <a href="#disqus_thread">查看评论</a>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p>在JavaScript: The Good Parts这本书中给出了一个创建对象的常用方式：</p>
+
+<figure class='code'><figcaption><span>create  </span></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class='js'><span class='line'><span class="nb">Object</span><span class="p">.</span><span class="nx">create</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">o</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'><span class="kd">var</span> <span class="nx">F</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{};</span>
+</span><span class='line'><span class="nx">F</span><span class="p">.</span><span class="nx">prototype</span> <span class="o">=</span> <span class="nx">o</span><span class="p">;</span>
+</span><span class='line'><span class="k">return</span> <span class="k">new</span> <span class="nx">F</span><span class="p">();</span>
+</span><span class='line'><span class="p">}</span>
+</span><span class='line'><span class="kd">var</span> <span class="nx">b</span><span class="o">=</span><span class="nb">Object</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span><span class="nx">a</span><span class="p">);</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>下面这段代码就是对上面代码的大概解释</p>
+
+<figure class='code'><figcaption><span>大概就是这么一个意思  </span></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+<span class='line-number'>32</span>
+<span class='line-number'>33</span>
+<span class='line-number'>34</span>
+<span class='line-number'>35</span>
+<span class='line-number'>36</span>
+<span class='line-number'>37</span>
+<span class='line-number'>38</span>
+</pre></td><td class='code'><pre><code class='js'><span class='line'><span class="kd">var</span> <span class="nx">o</span><span class="p">;</span>
+</span><span class='line'>
+</span><span class='line'><span class="c1">// create an object with null as prototype</span>
+</span><span class='line'><span class="nx">o</span> <span class="o">=</span> <span class="nb">Object</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span><span class="kc">null</span><span class="p">);</span>
+</span><span class='line'>
+</span><span class='line'>
+</span><span class='line'><span class="nx">o</span> <span class="o">=</span> <span class="p">{};</span>
+</span><span class='line'><span class="c1">// is equivalent to:</span>
+</span><span class='line'><span class="nx">o</span> <span class="o">=</span> <span class="nb">Object</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span><span class="nb">Object</span><span class="p">.</span><span class="nx">prototype</span><span class="p">);</span>
+</span><span class='line'>
+</span><span class='line'>
+</span><span class='line'><span class="kd">function</span> <span class="nx">Constructor</span><span class="p">(){}</span>
+</span><span class='line'><span class="nx">o</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Constructor</span><span class="p">();</span>
+</span><span class='line'><span class="c1">// is equivalent to:</span>
+</span><span class='line'><span class="nx">o</span> <span class="o">=</span> <span class="nb">Object</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span><span class="nx">Constructor</span><span class="p">.</span><span class="nx">prototype</span><span class="p">);</span>
+</span><span class='line'><span class="c1">// Of course, if there is actual initialization code in the Constructor function, the Object.create cannot reflect it</span>
+</span><span class='line'>
+</span><span class='line'>
+</span><span class='line'><span class="c1">// create a new object whose prototype is a new, empty object</span>
+</span><span class='line'><span class="c1">// and a adding single property &#39;p&#39;, with value 42</span>
+</span><span class='line'><span class="nx">o</span> <span class="o">=</span> <span class="nb">Object</span><span class="p">.</span><span class="nx">create</span><span class="p">({},</span> <span class="p">{</span> <span class="nx">p</span><span class="o">:</span> <span class="p">{</span> <span class="nx">value</span><span class="o">:</span> <span class="mi">42</span> <span class="p">}</span> <span class="p">})</span>
+</span><span class='line'>
+</span><span class='line'><span class="c1">// by default properties ARE NOT writable, enumerable or configurable:</span>
+</span><span class='line'><span class="nx">o</span><span class="p">.</span><span class="nx">p</span> <span class="o">=</span> <span class="mi">24</span>
+</span><span class='line'><span class="nx">o</span><span class="p">.</span><span class="nx">p</span>
+</span><span class='line'><span class="c1">//42</span>
+</span><span class='line'>
+</span><span class='line'><span class="nx">o</span><span class="p">.</span><span class="nx">q</span> <span class="o">=</span> <span class="mi">12</span>
+</span><span class='line'><span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">prop</span> <span class="k">in</span> <span class="nx">o</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">prop</span><span class="p">)</span>
+</span><span class='line'><span class="p">}</span>
+</span><span class='line'><span class="c1">//&quot;q&quot;</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">delete</span> <span class="nx">o</span><span class="p">.</span><span class="nx">p</span>
+</span><span class='line'><span class="c1">//false</span>
+</span><span class='line'>
+</span><span class='line'><span class="c1">//to specify an ES3 property</span>
+</span><span class='line'><span class="nx">o2</span> <span class="o">=</span> <span class="nb">Object</span><span class="p">.</span><span class="nx">create</span><span class="p">({},</span> <span class="p">{</span> <span class="nx">p</span><span class="o">:</span> <span class="p">{</span> <span class="nx">value</span><span class="o">:</span> <span class="mi">42</span><span class="p">,</span> <span class="nx">writable</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span> <span class="nx">enumerable</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span> <span class="nx">configurable</span><span class="o">:</span> <span class="kc">true</span> <span class="p">}</span> <span class="p">});</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h3>相关链接:</h3>
+
+<ul>
+<li><a href="https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/Object/create">https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/Object/create</a></li>
+<li><a href="http://technet.microsoft.com/zh-cn/query/ff925952">http://technet.microsoft.com/zh-cn/query/ff925952</a></li>
+</ul>
+
+</div>
+
+<hr/>
+<div class="recent-post-box innerbox">
+  <h2>Recent Posts</h2>
+  <ul id="recent_posts" class="fix">
+    
+      <li class="post">
+        <a href="/article/object-create.html">+ Object.create创建对象</a>
+      </li>
+    
+      <li class="post">
+        <a href="/article/javascript-patterns.html">+ javascript代码设计浅析</a>
+      </li>
+    
+      <li class="post">
+        <a href="/article/seajs-use.html">+ seaJs入门简介</a>
+      </li>
+    
+      <li class="post">
+        <a href="/article/octopress-different-place.html">+ Octopress不同电脑发布文章</a>
+      </li>
+    
+      <li class="post">
+        <a href="/article/new-blog-with-octopress.html">+ 开始使用Octopress</a>
+      </li>
+    
+  </ul>
+  </div>
+
+
+<p class="tags innerbox"> Tags:
+  
+    <a class='tag' href='/tags/javascript/'>javascript</a>
+  
+</p>
+
+
+  <footer>
+    <p class="meta fix">
+      
+        <a class="basic-alignment left" href="/article/javascript-patterns.html" title="Previous Post: javascript代码设计浅析">&laquo; javascript代码设计浅析</a>
+      
+      
+    </p>
+  </footer>
+
+</article>
+
+  <section class="comment">
+    <h2>Comments</h2>
+    <div id="disqus_thread" aria-live="polite"><div class="ds-thread"></div>
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"ppanda"};
+(function() {
+  var ds = document.createElement('script');
+  ds.type = 'text/javascript';ds.async = true;
+  ds.src = 'http://static.duoshuo.com/embed.js';
+  ds.charset = 'UTF-8';
+  (document.getElementsByTagName('head')[0] 
+  || document.getElementsByTagName('body')[0]).appendChild(ds);
+})();
+</script>
+</div>
+  </section>
+
+
+<aside class="sidebar">
+  
+    <section>
+  <h2>About Me</h2>
+<pre class="reset">
+{
+	一屌丝
+}
+<div style="text-align:center;font-size:18px;font-weight:700;font-family:Comic Sans MS"><a style="color: #219a44;" href="http://www.douban.com/people/ppanda/" target="_blank">Douban</a> <a style="color: #4c90c6;" href="https://twitter.com/pxiongmao" target="_blank">Twitter</a> <a style="color: #3b5998;" href="http://www.facebook.com/pxiongmao" target="_blank">Facebook</a> <a style="color: #0cf;" href="http://fanfou.com/laozhuhome" target="_blank">Fanfou</a> <a style="color: #E32529;" href="http://weibo.com/209123645" target="_blank">Weibo</a></div>
+</pre>
+</section>
+  
+</aside>
+
+
+</div>
+<footer id="footer" role="contentinfo"><p style="font-size:12px;">
+  Copyright &copy; 2013 - by <a style="color:#EA5246;" target="_blank" href="http://ppanda.com/what-am-i-in-they-eyes.html">PPanda</a> <a target="_blank" href="http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&amp;email=PAoEDg8ECQgPfE1NEl9TUQ" style="text-decoration:none;">给我写信</a>
+</p>
+</footer>
+</body>
+</html>

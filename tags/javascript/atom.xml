@@ -4,7 +4,7 @@
   <title><![CDATA[Tag: javascript | 屁熊猫的实验室]]></title>
   <link href="http://PPPanda.github.com/tags/javascript/atom.xml" rel="self"/>
   <link href="http://PPPanda.github.com/"/>
-  <updated>2013-01-30T19:26:06+08:00</updated>
+  <updated>2013-05-17T00:11:13+08:00</updated>
   <id>http://PPPanda.github.com/</id>
   <author>
     <name><![CDATA[PPanda]]></name>
@@ -14,17 +14,122 @@
 
   
   <entry>
+    <title type="html"><![CDATA[Object.create创建对象]]></title>
+    <link href="http://PPPanda.github.com/article/object-create.html"/>
+    <updated>2013-05-16T23:55:00+08:00</updated>
+    <id>http://PPPanda.github.com/article/object-create</id>
+    <content type="html"><![CDATA[<p>在JavaScript: The Good Parts这本书中给出了一个创建对象的常用方式：
+<div class='bogus-wrapper'><notextile><figure class='code'><figcaption><span>create  </span></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class='js'><span class='line'><span class="nb">Object</span><span class="p">.</span><span class="nx">create</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">o</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'><span class="kd">var</span> <span class="nx">F</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{};</span>
+</span><span class='line'><span class="nx">F</span><span class="p">.</span><span class="nx">prototype</span> <span class="o">=</span> <span class="nx">o</span><span class="p">;</span>
+</span><span class='line'><span class="k">return</span> <span class="k">new</span> <span class="nx">F</span><span class="p">();</span>
+</span><span class='line'><span class="p">}</span>
+</span><span class='line'><span class="kd">var</span> <span class="nx">b</span><span class="o">=</span><span class="nb">Object</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span><span class="nx">a</span><span class="p">);</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+
+<p>下面这段代码就是对上面代码的大概解释</p>
+
+<p><div class='bogus-wrapper'><notextile><figure class='code'><figcaption><span>大概就是这么一个意思  </span></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+<span class='line-number'>32</span>
+<span class='line-number'>33</span>
+<span class='line-number'>34</span>
+<span class='line-number'>35</span>
+</pre></td><td class='code'><pre><code class='js'><span class='line'><span class="kd">var</span> <span class="nx">o</span><span class="p">;</span><span class="o">&lt;</span><span class="err">/p&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="nx">p</span><span class="o">&gt;</span><span class="c1">// create an object with null as prototype</span>
+</span><span class='line'><span class="nx">o</span> <span class="o">=</span> <span class="nb">Object</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span><span class="kc">null</span><span class="p">);</span><span class="o">&lt;</span><span class="err">/p&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="nx">p</span><span class="o">&gt;</span><span class="nx">o</span> <span class="o">=</span> <span class="p">{};</span>
+</span><span class='line'><span class="c1">// is equivalent to:</span>
+</span><span class='line'><span class="nx">o</span> <span class="o">=</span> <span class="nb">Object</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span><span class="nb">Object</span><span class="p">.</span><span class="nx">prototype</span><span class="p">);</span><span class="o">&lt;</span><span class="err">/p&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="nx">p</span><span class="o">&gt;</span><span class="kd">function</span> <span class="nx">Constructor</span><span class="p">(){}</span>
+</span><span class='line'><span class="nx">o</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Constructor</span><span class="p">();</span>
+</span><span class='line'><span class="c1">// is equivalent to:</span>
+</span><span class='line'><span class="nx">o</span> <span class="o">=</span> <span class="nb">Object</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span><span class="nx">Constructor</span><span class="p">.</span><span class="nx">prototype</span><span class="p">);</span>
+</span><span class='line'><span class="c1">// Of course, if there is actual initialization code in the Constructor function, the Object.create cannot reflect it&lt;/p&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="nx">p</span><span class="o">&gt;</span><span class="c1">// create a new object whose prototype is a new, empty object</span>
+</span><span class='line'><span class="c1">// and a adding single property &#39;p&#39;, with value 42</span>
+</span><span class='line'><span class="nx">o</span> <span class="o">=</span> <span class="nb">Object</span><span class="p">.</span><span class="nx">create</span><span class="p">({},</span> <span class="p">{</span> <span class="nx">p</span><span class="o">:</span> <span class="p">{</span> <span class="nx">value</span><span class="o">:</span> <span class="mi">42</span> <span class="p">}</span> <span class="p">})</span><span class="o">&lt;</span><span class="err">/p&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="nx">p</span><span class="o">&gt;</span><span class="c1">// by default properties ARE NOT writable, enumerable or configurable:</span>
+</span><span class='line'><span class="nx">o</span><span class="p">.</span><span class="nx">p</span> <span class="o">=</span> <span class="mi">24</span>
+</span><span class='line'><span class="nx">o</span><span class="p">.</span><span class="nx">p</span>
+</span><span class='line'><span class="c1">//42&lt;/p&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="nx">p</span><span class="o">&gt;</span><span class="nx">o</span><span class="p">.</span><span class="nx">q</span> <span class="o">=</span> <span class="mi">12</span>
+</span><span class='line'><span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">prop</span> <span class="k">in</span> <span class="nx">o</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">prop</span><span class="p">)</span>
+</span><span class='line'><span class="p">}</span>
+</span><span class='line'><span class="c1">//&quot;q&quot;&lt;/p&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="nx">p</span><span class="o">&gt;</span><span class="k">delete</span> <span class="nx">o</span><span class="p">.</span><span class="nx">p</span>
+</span><span class='line'><span class="c1">//false&lt;/p&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="nx">p</span><span class="o">&gt;</span><span class="c1">//to specify an ES3 property</span>
+</span><span class='line'><span class="nx">o2</span> <span class="o">=</span> <span class="nb">Object</span><span class="p">.</span><span class="nx">create</span><span class="p">({},</span> <span class="p">{</span> <span class="nx">p</span><span class="o">:</span> <span class="p">{</span> <span class="nx">value</span><span class="o">:</span> <span class="mi">42</span><span class="p">,</span> <span class="nx">writable</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span> <span class="nx">enumerable</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span> <span class="nx">configurable</span><span class="o">:</span> <span class="kc">true</span> <span class="p">}</span> <span class="p">});</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+
+<h3>相关链接:</h3>
+
+<ul>
+<li><a href="https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/Object/create">https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/Object/create</a></li>
+<li><a href="http://technet.microsoft.com/zh-cn/query/ff925952">http://technet.microsoft.com/zh-cn/query/ff925952</a></li>
+</ul>
+
+]]></content>
+  </entry>
+  
+  <entry>
     <title type="html"><![CDATA[javascript代码设计浅析]]></title>
     <link href="http://PPPanda.github.com/article/javascript-patterns.html"/>
     <updated>2013-01-30T15:46:00+08:00</updated>
     <id>http://PPPanda.github.com/article/javascript-patterns</id>
-    <content type="html"><![CDATA[<p>内部讨论了一下代码设计模式方面的内容,这里说一下自己的思路吧.</p>
-
-<h3>单例模式</h3>
+    <content type="html"><![CDATA[<h3>单例模式</h3>
 
 <blockquote><p>定义 - 单件模式确保一个类只有一个实例，并且提供一个全局访问点。</p></blockquote>
 
-<p>在javascript中通常我们会创建一个命名空间来包含所有的功能代码. 个人认为单例模式的好处就是可以在多人开发时避免代码的冲突,还可以更好的控制页面里的功能.</p>
+<p>在javascript中通常我们会创建一个命名空间来包含所有的功能代码. 个人认为单例模式的好处就是可以在多人开发时避免代码的冲突,还可以更好的控制页面里的功能.
+实际上，单件模式也许是我们日常前端JS开发中使用频率最高的设计模式。</p>
 
 <p><div class='bogus-wrapper'><notextile><figure class='code'><figcaption><span>单例模式  </span></figcaption>
  <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
@@ -51,8 +156,52 @@
 
 <blockquote><p>定义 - <em>抽象工厂模式</em>是每个抽象产品派生多个具体产品类，每个抽象工厂派生多个具体工厂类，每个具体工厂负责多个（一系列）具体产品的实例创建。<em>工厂方法模式</em>是每个抽象产品派生多个具体产品类，每个抽象工厂类派生多个具体工厂类，每个具体工厂类负责一个具体产品的实例创建。</p></blockquote>
 
-<!--more -->
+<p><div class='bogus-wrapper'><notextile><figure class='code'><figcaption><span>工厂模式  </span></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+</pre></td><td class='code'><pre><code class='js'><span class='line'><span class="o">&lt;</span><span class="err">/p&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="nx">p</span><span class="o">&gt;</span><span class="kd">function</span> <span class="nx">Product</span><span class="p">(){}</span><span class="o">&lt;</span><span class="err">/p&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="nx">p</span><span class="o">&gt;</span><span class="nx">Product</span><span class="p">.</span><span class="nx">prototype</span> <span class="o">=</span> <span class="p">{</span><span class="o">&lt;</span><span class="err">/p&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="nx">pre</span><span class="o">&gt;&lt;</span><span class="nx">code</span><span class="o">&gt;</span><span class="nx">layload</span> <span class="o">:</span> <span class="kd">function</span><span class="p">(){},</span>
+</span><span class='line'><span class="nx">popBox</span> <span class="o">:</span> <span class="kd">function</span><span class="p">(){}</span>
+</span><span class='line'><span class="o">&lt;</span><span class="err">/code&gt;&lt;/pre&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="nx">p</span><span class="o">&gt;</span><span class="p">}</span><span class="o">&lt;</span><span class="err">/p&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="nx">p</span><span class="o">&gt;</span><span class="c1">//...&lt;/p&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="nx">p</span><span class="o">&gt;</span><span class="nx">$PV</span><span class="p">.</span><span class="nx">extend</span><span class="p">(</span><span class="nx">$PV</span><span class="p">.</span><span class="nx">Ready</span><span class="p">.</span><span class="nx">pro_shoucang</span><span class="p">,</span> <span class="nx">Product</span><span class="p">);</span>
+</span><span class='line'><span class="nx">$</span><span class="p">(</span><span class="s2">&quot;#shoucang&quot;</span><span class="p">).</span><span class="nx">click</span><span class="p">(</span><span class="kd">function</span><span class="p">(){</span><span class="o">&lt;</span><span class="err">/p&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="nx">pre</span><span class="o">&gt;&lt;</span><span class="nx">code</span><span class="o">&gt;</span><span class="nx">$PV</span><span class="p">.</span><span class="nx">Ready</span><span class="p">.</span><span class="nx">pro_shoucang</span><span class="p">.</span><span class="nx">base</span><span class="p">.</span><span class="nx">popBox</span><span class="p">.</span><span class="nx">call</span><span class="p">(</span><span class="k">this</span><span class="p">,</span> <span class="nx">_id</span><span class="p">,</span> <span class="nx">_closeId</span><span class="p">,</span> <span class="nx">_submit</span><span class="p">,</span> <span class="kc">true</span><span class="p">);</span>
+</span><span class='line'><span class="o">&lt;</span><span class="err">/code&gt;&lt;/pre&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="nx">p</span><span class="o">&gt;</span><span class="p">});</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div></p>
 
+<p>待续>></p>
 ]]></content>
   </entry>
   
