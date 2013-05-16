@@ -146,8 +146,8 @@ blockquote:after{content:'“';position:absolute;top:-23px;left:0;font-size:100p
 .recent-post-box{padding:10px 20px;}
 .recent-post-box li{list-style:none;}
 #blog-archives{position:relative;}
-#blog-archives h2{float:left;width:10%;border:none;color:#aaa;font-size:22px;font-family:Arial,sans-serif;}
-.page-list-box{float:left;width:89%;}
+#blog-archives h2{float:left;width:10%;border:none;color:#aaa;font-size:22px;font-family:Arial,sans-serif;clear:both;}
+.page-list-box{float:right;width:89%;}
 #blog-archives .page-list-box .meta{border-bottom:1px dashed #ddd;margin:0;padding-bottom:10px;}
 #blog-archives .page-list-box h1 a{color:#111;}
 pre.reset{background:none;box-shadow:none;border:none;}
