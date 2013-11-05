@@ -4,30 +4,7 @@
   <meta charset="utf-8">
   <title>屁熊猫的实验室</title>
   <meta name="author" content="PPanda">
-  <meta name="description" content="一个简单的模拟loading的例子,使用了三种方式: canvas版
-css3版
-普通的gif版 先来看看canvas版吧,大概代码就这些了 canvas版loading Demo 1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22 &hellip;">
+  <meta name="description" content="在调试tumblr的时候看到了这样一条属性, -webkit-font-smoothing于是自己切换了下他的属性发现差别还真不一样,由于自己比较懒,于是找了一个demo来展示效果. -webkit-font-smoothing 该属性定义文本的平滑属性。 -webkit-font- &hellip;">
   <meta name="HandheldFriendly" content="True">
   <meta name="MobileOptimized" content="320">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -58,6 +35,63 @@ var cpro_id = "u1285657";
 <div id="content">
   <div class="blog-index">
     
+    <article class="post">
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/article/webkit-font-smoothing.html">Webkit-font-smoothing</a></h1>
+    
+    
+      <p class="meta">
+        
+  
+
+<span class="byline author vcard">Posted by <span class="fn">PPanda</span></span>
+ |      
+
+  
+
+<time datetime="2013-11-05T22:15:00+08:00" pubdate data-updated="true">2013年11月05日</time> | 
+
+<span class="categories">
+  
+    <a class='category' href='/categories/css3/'>CSS3</a>
+  
+</span>
+
+
+        
+        | <a href="/article/webkit-font-smoothing.html#disqus_thread">查看评论</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>在调试tumblr的时候看到了这样一条属性, <code>-webkit-font-smoothing</code>于是自己切换了下他的属性发现差别还真不一样,由于自己比较懒,于是找了一个<a href="http://labs.qianduan.net/macfont.html">demo</a>来展示效果.</p>
+
+<p>-webkit-font-smoothing 该属性定义文本的平滑属性。</p>
+
+<pre><code>-webkit-font-smoothing: none | subpixel-antialiased | antialiased
+</code></pre>
+
+<ul>
+<li>none  取消平滑，显示锯齿锋利边缘，用于小像素的文本。</li>
+<li>subpixel-antialiased  浏览器的默认平滑字体。</li>
+<li>antialiased   最佳平滑效果</li>
+</ul>
+
+
+<iframe id="iframedemo" style="border:1px solid #ddd;" src="http://labs.qianduan.net/macfont.html" width="100%" height="500" frameborder="0"></iframe>
+
+
+<p><code>-webkit-font-smoothing: antialiased;</code> 的展示效果还比较理想,以后可以在项目中选择使用下.</p>
+</div>
+  
+  
+
+    </article>
+   
     <article class="post">
       
   <header>
@@ -629,50 +663,10 @@ var cpro_id = "u1285657";
   
 
     </article>
-   
-    <article class="post">
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/article/hello-world.html">Hello World</a></h1>
-    
-    
-      <p class="meta">
-        
-  
-
-<span class="byline author vcard">Posted by <span class="fn">PPanda</span></span>
- |      
-
-  
-
-<time datetime="2012-12-06T23:13:00+08:00" pubdate data-updated="true">2012年12月06日</time> | 
-
-<span class="categories">
-  
-    <a class='category' href='/categories/octopress/'>Octopress</a>
-  
-</span>
-
-
-        
-        | <a href="/article/hello-world.html#disqus_thread">查看评论</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><h2>Hello World!</h2>
-
-<p>感觉没有这句经典的问候就像少了点什么</p>
-</div>
-  
-  
-
-    </article>
   
   <div class="pagination">
+    
+      <a class="prev" href="/blog/page/2/">&larr; 旧的文章</a>
     
     
   </div>
@@ -685,7 +679,7 @@ var cpro_id = "u1285657";
 {
 	好男人就是我,我就是朱小贱~
 }
-<div style="text-align:center;font-size:18px;font-weight:700;font-family:Comic Sans MS"><a style="color: #219a44;" href="http://www.douban.com/people/ppanda/" target="_blank">Douban</a> <a style="color: #4c90c6;" href="https://twitter.com/pxiongmao" target="_blank">Twitter</a> <a style="color: #3b5998;" href="http://www.facebook.com/pxiongmao" target="_blank">Facebook</a> <a style="color: #0cf;" href="http://fanfou.com/laozhuhome" target="_blank">Fanfou</a> <a style="color: #E32529;" href="http://weibo.com/209123645" target="_blank">Weibo</a></div>
+<div style="text-align:center;font-size:18px;font-weight:700;font-family:Comic Sans MS"><a style="color: #219a44;" href="http://www.douban.com/people/ppanda/" target="_blank">Douban</a> <a style="color: #4c90c6;" href="https://twitter.com/pxiongmao" target="_blank">Twitter</a> <a style="color: #3b5998;" href="http://www.facebook.com/pxiongmao" target="_blank">Facebook</a> <a style="color: #E32529;" href="http://weibo.com/209123645" target="_blank">Weibo</a></div>
 </pre>
 </section>
   

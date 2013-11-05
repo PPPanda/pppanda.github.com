@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: CSS3 | 屁熊猫的实验室]]></title>
+  <link href="http://PPPanda.github.com/categories/css3/atom.xml" rel="self"/>
+  <link href="http://PPPanda.github.com/"/>
+  <updated>2013-11-05T21:26:28+08:00</updated>
+  <id>http://PPPanda.github.com/</id>
+  <author>
+    <name><![CDATA[PPanda]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[webkit-font-smoothing]]></title>
+    <link href="http://PPPanda.github.com/article/webkit-font-smoothing.html"/>
+    <updated>2013-11-05T22:15:00+08:00</updated>
+    <id>http://PPPanda.github.com/article/webkit-font-smoothing</id>
+    <content type="html"><![CDATA[<p>在调试tumblr的时候看到了这样一条属性, <code>-webkit-font-smoothing</code>于是自己切换了下他的属性发现差别还真不一样,由于自己比较懒,于是找了一个<a href="http://labs.qianduan.net/macfont.html">demo</a>来展示效果.</p>
+
+<p>-webkit-font-smoothing 该属性定义文本的平滑属性。</p>
+
+<pre><code>-webkit-font-smoothing: none | subpixel-antialiased | antialiased
+</code></pre>
+
+<ul>
+<li>none  取消平滑，显示锯齿锋利边缘，用于小像素的文本。</li>
+<li>subpixel-antialiased  浏览器的默认平滑字体。</li>
+<li>antialiased   最佳平滑效果</li>
+</ul>
+
+
+<iframe id="iframedemo" style="border:1px solid #ddd;" src="http://labs.qianduan.net/macfont.html" width="100%" height="500" frameborder="0"></iframe>
+
+
+<p><code>-webkit-font-smoothing: antialiased;</code> 的展示效果还比较理想,以后可以在项目中选择使用下.</p>
+]]></content>
+  </entry>
+  
+</feed>
