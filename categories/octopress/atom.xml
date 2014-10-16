@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Octopress | 屁熊猫的实验室]]></title>
   <link href="http://PPPanda.github.com/categories/octopress/atom.xml" rel="self"/>
   <link href="http://PPPanda.github.com/"/>
-  <updated>2013-11-05T21:26:28+08:00</updated>
+  <updated>2014-10-16T15:12:38+08:00</updated>
   <id>http://PPPanda.github.com/</id>
   <author>
     <name><![CDATA[PPanda]]></name>
@@ -645,9 +645,9 @@
 </ul>
 
 
-<p><div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='js'><span class='line'><span class="c1">//enjoy your codding life</span>
-</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+<p>{% codeblock lang:js %}
+//enjoy your codding life
+{% endcodeblock %}</p>
 ]]></content>
   </entry>
   

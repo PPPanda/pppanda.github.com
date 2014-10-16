@@ -77,56 +77,7 @@ var cpro_id = "u1285657";
 
 <h3>定义模块</h3>
 
-<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-<span class='line-number'>16</span>
-<span class='line-number'>17</span>
-<span class='line-number'>18</span>
-<span class='line-number'>19</span>
-<span class='line-number'>20</span>
-<span class='line-number'>21</span>
-<span class='line-number'>22</span>
-<span class='line-number'>23</span>
-</pre></td><td class='code'><pre><code class='js'><span class='line'><span class="c1">//define 模块基本factory参数用法 </span>
-</span><span class='line'><span class="nx">define</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">require</span><span class="p">,</span><span class="nx">exports</span><span class="p">,</span><span class="nx">module</span><span class="p">){</span>
-</span><span class='line'>    <span class="nx">exports</span><span class="p">.</span><span class="nx">Fn</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">para</span><span class="p">)</span> <span class="p">{</span>
-</span><span class='line'>        <span class="c1">//do Something</span>
-</span><span class='line'>    <span class="p">};</span>
-</span><span class='line'><span class="p">});</span>
-</span><span class='line'>
-</span><span class='line'><span class="nx">define</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">require</span><span class="p">,</span> <span class="nx">exports</span><span class="p">,</span> <span class="nx">module</span><span class="p">)</span> <span class="p">{</span>
-</span><span class='line'>    <span class="kd">var</span> <span class="nx">$</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;jquery&#39;</span><span class="p">);</span> <span class="c1">//引入jquery模块</span>
-</span><span class='line'>    <span class="kd">var</span> <span class="nx">ST</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;sntouch&#39;</span><span class="p">);</span> <span class="c1">//引入sntouch模块</span>
-</span><span class='line'>
-</span><span class='line'>    <span class="kd">var</span> <span class="nx">data1</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="c1">//私有数据</span>
-</span><span class='line'>
-</span><span class='line'>    <span class="kd">var</span> <span class="nx">func1</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span> <span class="c1">//私有方法</span>
-</span><span class='line'>        <span class="k">return</span> <span class="s1">&#39;func1&#39;</span>
-</span><span class='line'>    <span class="p">}</span>
-</span><span class='line'>
-</span><span class='line'>    <span class="nx">exports</span><span class="p">.</span><span class="nx">data2</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span> <span class="c1">//公共数据</span>
-</span><span class='line'>
-</span><span class='line'>    <span class="nx">exports</span><span class="p">.</span><span class="nx">func2</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">str</span><span class="p">)</span> <span class="p">{</span> <span class="c1">//公共方法</span>
-</span><span class='line'>        <span class="nx">alert</span><span class="p">(</span><span class="nx">str</span><span class="p">)</span>
-</span><span class='line'>    <span class="p">}</span>
-</span><span class='line'><span class="p">});</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-
+<p>Liquid error: undefined method `Py_IsInitialized&#8217; for RubyPython::Python:Module</p>
 
 <!--more -->
 
@@ -136,72 +87,18 @@ var cpro_id = "u1285657";
 <h3>加载模块</h3>
 
 <p>先引入sea.js
-使用sayHello模块：</p>
-
-<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-</pre></td><td class='code'><pre><code class='js'><span class='line'><span class="nx">seajs</span><span class="p">.</span><span class="nx">use</span><span class="p">(</span><span class="s2">&quot;alias/main&quot;</span><span class="p">,</span><span class="kd">function</span><span class="p">(</span><span class="nx">s</span><span class="p">){</span>
-</span><span class='line'>  <span class="nx">s</span><span class="p">.</span><span class="nx">func2</span><span class="p">(</span><span class="s2">&quot;Hello SeaJS!&quot;</span><span class="p">);</span>
-</span><span class='line'><span class="p">});</span>
-</span></code></pre></td></tr></table></div></figure>
-
+使用sayHello模块：
+Liquid error: undefined method `Py_IsInitialized&#8217; for RubyPython::Python:Module</p>
 
 <h3>模块的依赖关系</h3>
 
-<figure class='code'><figcaption><span>小例子 </span><a href='http://lab.ppanda.com/demo/seajs.html'>Demo </a></figcaption> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-<span class='line-number'>16</span>
-</pre></td><td class='code'><pre><code class='js'><span class='line'><span class="nx">define</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">require</span><span class="p">,</span> <span class="nx">exports</span><span class="p">,</span> <span class="nx">module</span><span class="p">)</span> <span class="p">{</span>
-</span><span class='line'>    <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;base_book&#39;</span><span class="p">);</span> <span class="c1">//引入一个小js库</span>
-</span><span class='line'>    <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;../../stylesheets/filter.css&#39;</span><span class="p">)</span>
-</span><span class='line'>    <span class="kd">var</span> <span class="nx">data1</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="c1">//私有数据</span>
-</span><span class='line'>    <span class="kd">var</span> <span class="nx">id</span> <span class="o">=</span> <span class="s2">&quot;#search_box&quot;</span><span class="p">;</span>
-</span><span class='line'>
-</span><span class='line'>    <span class="nx">exports</span><span class="p">.</span><span class="nx">data2</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span> <span class="c1">//公共数据</span>
-</span><span class='line'>
-</span><span class='line'>    <span class="nx">exports</span><span class="p">.</span><span class="nx">func2</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">str</span><span class="p">)</span> <span class="p">{</span> <span class="c1">//公共方法</span>
-</span><span class='line'>        <span class="nx">alert</span><span class="p">(</span><span class="nx">str</span><span class="p">)</span>
-</span><span class='line'>    <span class="p">}</span>
-</span><span class='line'>    <span class="nx">exports</span><span class="p">.</span><span class="nx">filter</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(){</span>
-</span><span class='line'>        <span class="nx">ST</span><span class="p">.</span><span class="nx">Widget</span><span class="p">.</span><span class="nx">SearchPop</span><span class="p">(</span><span class="nx">id</span><span class="p">,</span><span class="s2">&quot;a&quot;</span><span class="p">);</span>
-</span><span class='line'>        <span class="nx">ST</span><span class="p">.</span><span class="nx">Widget</span><span class="p">.</span><span class="nx">Shake</span><span class="p">()</span>
-</span><span class='line'>    <span class="p">}</span>
-</span><span class='line'><span class="p">});</span>
-</span></code></pre></td></tr></table></div></figure>
-
+<p>Liquid error: undefined method `Py_IsInitialized&#8217; for RubyPython::Python:Module</p>
 
 <h3>配置</h3>
 
 <p><a href="https://github.com/seajs/seajs/issues/262"><code>seajs.config</code></a></p>
 
-<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-</pre></td><td class='code'><pre><code class='js'><span class='line'><span class="nx">seajs</span><span class="p">.</span><span class="nx">config</span><span class="p">({</span>
-</span><span class='line'>  <span class="nx">alias</span><span class="o">:</span> <span class="p">{</span>
-</span><span class='line'>    <span class="s1">&#39;app&#39;</span><span class="o">:</span> <span class="s1">&#39;http://path/to/app&#39;</span><span class="p">,</span>
-</span><span class='line'>    <span class="s1">&#39;jquery&#39;</span><span class="o">:</span> <span class="s1">&#39;gallery/jquery/1.8.2/jquery&#39;</span>
-</span><span class='line'>  <span class="p">}</span>
-</span><span class='line'><span class="p">});</span>
-</span></code></pre></td></tr></table></div></figure>
-
+<p>Liquid error: undefined method `Py_IsInitialized&#8217; for RubyPython::Python:Module</p>
 
 <h3>CMD规范</h3>
 
@@ -222,6 +119,14 @@ var cpro_id = "u1285657";
   <ul id="recent_posts" class="fix">
     
       <li class="post">
+        <a href="/article/test-page.html">+ test page</a>
+      </li>
+    
+      <li class="post">
+        <a href="/article/debug-in-webkit.html">+ 手机端webApp调试方式</a>
+      </li>
+    
+      <li class="post">
         <a href="/article/webkit-font-smoothing.html">+ webkit-font-smoothing</a>
       </li>
     
@@ -231,14 +136,6 @@ var cpro_id = "u1285657";
     
       <li class="post">
         <a href="/article/object-create.html">+ Object.create创建对象</a>
-      </li>
-    
-      <li class="post">
-        <a href="/article/javascript-patterns.html">+ javascript代码设计浅析</a>
-      </li>
-    
-      <li class="post">
-        <a href="/article/seajs-use.html">+ seaJs入门简介</a>
       </li>
     
   </ul>
@@ -258,7 +155,7 @@ var cpro_id = "u1285657";
         <a class="basic-alignment left" href="/article/octopress-different-place.html" title="Previous Post: Octopress不同电脑发布文章">&laquo; Octopress不同电脑发布文章</a>
       
       
-        <a class="basic-alignment right" href="/article/javascript-patterns.html" title="Next Post: javascript代码设计浅析">javascript代码设计浅析 &raquo;</a>
+        <a class="basic-alignment right" href="/article/object-create.html" title="Next Post: Object.create创建对象">Object.create创建对象 &raquo;</a>
       
     </p>
   </footer>
@@ -300,7 +197,7 @@ var duoshuoQuery = {short_name:"ppanda"};
 
 </div>
 <footer id="footer" role="contentinfo"><p style="font-size:12px;">
-  Copyright &copy; 2013 - by <a style="color:#EA5246;" target="_blank" href="http://ppanda.com/what-am-i-in-they-eyes.html">PPanda</a> <a target="_blank" href="http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&amp;email=PAoEDg8ECQgPfE1NEl9TUQ" style="text-decoration:none;">给我写信</a>
+  Copyright &copy; 2014 - by <a style="color:#EA5246;" target="_blank" href="http://ppanda.com/what-am-i-in-they-eyes.html">PPanda</a> <a target="_blank" href="http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&amp;email=PAoEDg8ECQgPfE1NEl9TUQ" style="text-decoration:none;">给我写信</a>
 </p>
 </footer>
 </body>

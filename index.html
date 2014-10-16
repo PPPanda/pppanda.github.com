@@ -4,7 +4,8 @@
   <meta charset="utf-8">
   <title>屁熊猫的实验室</title>
   <meta name="author" content="PPanda">
-  <meta name="description" content="在调试tumblr的时候看到了这样一条属性, -webkit-font-smoothing于是自己切换了下他的属性发现差别还真不一样,由于自己比较懒,于是找了一个demo来展示效果. -webkit-font-smoothing 该属性定义文本的平滑属性。 -webkit-font- &hellip;">
+  <meta name="description" content="
+">
   <meta name="HandheldFriendly" content="True">
   <meta name="MobileOptimized" content="320">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -35,6 +36,80 @@ var cpro_id = "u1285657";
 <div id="content">
   <div class="blog-index">
     
+    <article class="post">
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/article/test-page.html">Test Page</a></h1>
+    
+    
+      <p class="meta">
+        
+  
+
+<span class="byline author vcard">Posted by <span class="fn">PPanda</span></span>
+ |      
+
+  
+
+<time datetime="2014-10-16T15:12:00+08:00" pubdate data-updated="true">2014年10月16日</time> | 
+
+
+        
+        | <a href="/article/test-page.html#disqus_thread">查看评论</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content">
+</div>
+  
+  
+
+    </article>
+   
+    <article class="post">
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/article/debug-in-webkit.html">手机端webApp调试方式</a></h1>
+    
+    
+      <p class="meta">
+        
+  
+
+<span class="byline author vcard">Posted by <span class="fn">PPanda</span></span>
+ |      
+
+  
+
+<time datetime="2013-12-26T17:12:00+08:00" pubdate data-updated="true">2013年12月26日</time> | 
+
+<span class="categories">
+  
+    <a class='category' href='/categories/tools/'>tools</a>, <a class='category' href='/categories/webapp/'>webApp</a>
+  
+</span>
+
+
+        
+        | <a href="/article/debug-in-webkit.html#disqus_thread">查看评论</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>在处理手机端浏览器</p>
+</div>
+  
+  
+
+    </article>
+   
     <article class="post">
       
   <header>
@@ -345,105 +420,6 @@ var cpro_id = "u1285657";
       
   <header>
     
-      <h1 class="entry-title"><a href="/article/javascript-patterns.html">Javascript代码设计浅析</a></h1>
-    
-    
-      <p class="meta">
-        
-  
-
-<span class="byline author vcard">Posted by <span class="fn">PPanda</span></span>
- |      
-
-  
-
-<time datetime="2013-01-30T15:46:00+08:00" pubdate data-updated="true">2013年01月30日</time> | 
-
-<span class="categories">
-  
-    <a class='category' href='/categories/javascript/'>javascript</a>
-  
-</span>
-
-
-        
-        | <a href="/article/javascript-patterns.html#disqus_thread">查看评论</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><h3>单例模式</h3>
-
-<blockquote><p>定义 - 单件模式确保一个类只有一个实例，并且提供一个全局访问点。</p></blockquote>
-
-<p>在javascript中通常我们会创建一个命名空间来包含所有的功能代码. 个人认为单例模式的好处就是可以在多人开发时避免代码的冲突,还可以更好的控制页面里的功能.
-实际上，单件模式也许是我们日常前端JS开发中使用频率最高的设计模式。</p>
-
-<figure class='code'><figcaption><span>单例模式  </span></figcaption>
- <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-</pre></td><td class='code'><pre><code class='js'><span class='line'><span class="kd">var</span> <span class="nx">SNTouch</span> <span class="o">=</span> <span class="p">{</span>
-</span><span class='line'>  <span class="nx">Version</span><span class="o">:</span> <span class="s2">&quot;0.7&quot;</span><span class="p">,</span>
-</span><span class='line'>  <span class="nx">Author</span><span class="o">:</span> <span class="s2">&quot;PPanda&quot;</span><span class="p">,</span>
-</span><span class='line'>  <span class="nx">init</span><span class="o">:</span> <span class="kd">function</span><span class="p">(){},</span>
-</span><span class='line'>  <span class="nx">Widget</span><span class="o">:</span> <span class="p">{}</span>
-</span><span class='line'>
-</span><span class='line'><span class="p">}</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<h3>工厂模式</h3>
-
-<blockquote><p>定义 - <em>抽象工厂模式</em>是每个抽象产品派生多个具体产品类，每个抽象工厂派生多个具体工厂类，每个具体工厂负责多个（一系列）具体产品的实例创建。<em>工厂方法模式</em>是每个抽象产品派生多个具体产品类，每个抽象工厂类派生多个具体工厂类，每个具体工厂类负责一个具体产品的实例创建。</p></blockquote>
-
-<figure class='code'><figcaption><span>工厂模式  </span></figcaption>
- <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-</pre></td><td class='code'><pre><code class='js'><span class='line'><span class="kd">function</span> <span class="nx">Product</span><span class="p">(){}</span>
-</span><span class='line'>
-</span><span class='line'><span class="nx">Product</span><span class="p">.</span><span class="nx">prototype</span> <span class="o">=</span> <span class="p">{</span>
-</span><span class='line'>  <span class="nx">layload</span> <span class="o">:</span> <span class="kd">function</span><span class="p">(){},</span>
-</span><span class='line'>  <span class="nx">popBox</span> <span class="o">:</span> <span class="kd">function</span><span class="p">(){}</span>
-</span><span class='line'><span class="p">}</span>
-</span><span class='line'>
-</span><span class='line'><span class="c1">//...</span>
-</span><span class='line'>
-</span><span class='line'><span class="nx">$PV</span><span class="p">.</span><span class="nx">extend</span><span class="p">(</span><span class="nx">$PV</span><span class="p">.</span><span class="nx">Ready</span><span class="p">.</span><span class="nx">pro_shoucang</span><span class="p">,</span> <span class="nx">Product</span><span class="p">);</span>
-</span><span class='line'><span class="nx">$</span><span class="p">(</span><span class="s2">&quot;#shoucang&quot;</span><span class="p">).</span><span class="nx">click</span><span class="p">(</span><span class="kd">function</span><span class="p">(){</span>
-</span><span class='line'>  <span class="nx">$PV</span><span class="p">.</span><span class="nx">Ready</span><span class="p">.</span><span class="nx">pro_shoucang</span><span class="p">.</span><span class="nx">base</span><span class="p">.</span><span class="nx">popBox</span><span class="p">.</span><span class="nx">call</span><span class="p">(</span><span class="k">this</span><span class="p">,</span> <span class="nx">_id</span><span class="p">,</span> <span class="nx">_closeId</span><span class="p">,</span> <span class="nx">_submit</span><span class="p">,</span> <span class="kc">true</span><span class="p">);</span>
-</span><span class='line'><span class="p">});</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>待续>></p>
-</div>
-  
-  
-
-    </article>
-   
-    <article class="post">
-      
-  <header>
-    
       <h1 class="entry-title"><a href="/article/seajs-use.html">seaJs入门简介</a></h1>
     
     
@@ -484,56 +460,7 @@ var cpro_id = "u1285657";
 
 <h3>定义模块</h3>
 
-<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-<span class='line-number'>16</span>
-<span class='line-number'>17</span>
-<span class='line-number'>18</span>
-<span class='line-number'>19</span>
-<span class='line-number'>20</span>
-<span class='line-number'>21</span>
-<span class='line-number'>22</span>
-<span class='line-number'>23</span>
-</pre></td><td class='code'><pre><code class='js'><span class='line'><span class="c1">//define 模块基本factory参数用法 </span>
-</span><span class='line'><span class="nx">define</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">require</span><span class="p">,</span><span class="nx">exports</span><span class="p">,</span><span class="nx">module</span><span class="p">){</span>
-</span><span class='line'>    <span class="nx">exports</span><span class="p">.</span><span class="nx">Fn</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">para</span><span class="p">)</span> <span class="p">{</span>
-</span><span class='line'>        <span class="c1">//do Something</span>
-</span><span class='line'>    <span class="p">};</span>
-</span><span class='line'><span class="p">});</span>
-</span><span class='line'>
-</span><span class='line'><span class="nx">define</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">require</span><span class="p">,</span> <span class="nx">exports</span><span class="p">,</span> <span class="nx">module</span><span class="p">)</span> <span class="p">{</span>
-</span><span class='line'>    <span class="kd">var</span> <span class="nx">$</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;jquery&#39;</span><span class="p">);</span> <span class="c1">//引入jquery模块</span>
-</span><span class='line'>    <span class="kd">var</span> <span class="nx">ST</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;sntouch&#39;</span><span class="p">);</span> <span class="c1">//引入sntouch模块</span>
-</span><span class='line'>
-</span><span class='line'>    <span class="kd">var</span> <span class="nx">data1</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="c1">//私有数据</span>
-</span><span class='line'>
-</span><span class='line'>    <span class="kd">var</span> <span class="nx">func1</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span> <span class="c1">//私有方法</span>
-</span><span class='line'>        <span class="k">return</span> <span class="s1">&#39;func1&#39;</span>
-</span><span class='line'>    <span class="p">}</span>
-</span><span class='line'>
-</span><span class='line'>    <span class="nx">exports</span><span class="p">.</span><span class="nx">data2</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span> <span class="c1">//公共数据</span>
-</span><span class='line'>
-</span><span class='line'>    <span class="nx">exports</span><span class="p">.</span><span class="nx">func2</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">str</span><span class="p">)</span> <span class="p">{</span> <span class="c1">//公共方法</span>
-</span><span class='line'>        <span class="nx">alert</span><span class="p">(</span><span class="nx">str</span><span class="p">)</span>
-</span><span class='line'>    <span class="p">}</span>
-</span><span class='line'><span class="p">});</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-
+<p>Liquid error: undefined method `Py_IsInitialized&#8217; for RubyPython::Python:Module</p>
 
 </div>
   
@@ -590,79 +517,6 @@ var cpro_id = "u1285657";
   
 
     </article>
-   
-    <article class="post">
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/article/new-blog-with-octopress.html">开始使用Octopress</a></h1>
-    
-    
-      <p class="meta">
-        
-  
-
-<span class="byline author vcard">Posted by <span class="fn">PPanda</span></span>
- |      
-
-  
-
-<time datetime="2012-12-08T00:58:00+08:00" pubdate data-updated="true">2012年12月08日</time> | 
-
-<span class="categories">
-  
-    <a class='category' href='/categories/octopress/'>Octopress</a>
-  
-</span>
-
-
-        
-        | <a href="/article/new-blog-with-octopress.html#disqus_thread">查看评论</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>用惯了<a href="http:wordpress.rog">wordpress</a>突然有一天我就在想：我为什要使用wordpress？在折腾wordpress的时候我忘记了博客的本质：<em>Write</em> and <em>Post</em> ，为了互动可以再加上评论功能。再看看如今的wordpress，已经变得非常臃肿，虽然有很多人依然选择wordpress作为最初建站的一个程序，但是我还是看到很多人离开了wordpress的阵营，因为一个经常写代码的童鞋最讨厌的就是臃肿的程序。</p>
-
-<p>作为一个会常写代码的屌丝我发现了<a href="http:octopress.org">Octopress</a>这个小章鱼，了解了小章鱼的使用方法后发现这玩意着实击中了我的G点，再加上可以混搭<a href="http:github.com">github</a>这神奇，尼玛，这就叫 <em>A blogging framework for hackers.</em> 么？</p>
-
-<p>下面是在windows下如何搭建一个Octopress的方法，荣耀属于<a href="http://sinosmond.github.com/blog/2012/03/12/install-and-deploy-octopress-to-github-on-windows7-from-scratch/">Sinosmond&#8217;s Blog</a></p>
-
-<h3 id="octopress--1">Octopress 简介</h3>
-
-
-
-
-<ul>
-  <li><a href="http://octopress.org/">Octopress</a> 是一款基于 <a href="http://jekyllrb.com/">Jekyll</a> 的静态站点生成系统。
-    <ul>
-      <li>使用 Markdown 标记语言书写源文件， 通过 Markdown 解析器转换为 HTML 文件</li>
-      <li>通过 Octopress 提供的站点模板提供所需的 Web 资产文件 （Javascript、CSS、image 等）</li>
-      <li>只包含静态网页，无需数据库支持，对系统要求低且迁移方便  </li>
-      <li>以编写程序的方式编制网站，便于实现版本控制</li>
-    </ul>
-  </li>
-  <li><a href="http://octopress.org/">Octopress</a> / <a href="http://jekyllrb.com/">Jekyll</a> 使用简洁的Ruby框架实现。
-    <ul>
-      <li>Octopress 以 rake 任务的形式实现静态站点页面生成, 操作十分简单</li>
-      <li>Octopress 以 rake 任务的形式实现到普通网站和 <a href="http://github.com">Github</a> 的发布 </li>
-      <li>Octopress 与 Github 完美结合，你无需学习过多的 git 命令语法，使非专业人士的使用成为可能</li>
-    </ul>
-  </li>
-</ul>
-
-
-</div>
-  
-  
-    <footer class="tc">
-      <a rel="full-article" href="/article/new-blog-with-octopress.html">Read More</a>
-    </footer>
-  
-
-    </article>
   
   <div class="pagination">
     
@@ -686,7 +540,7 @@ var cpro_id = "u1285657";
 </aside>
 </div>
 <footer id="footer" role="contentinfo"><p style="font-size:12px;">
-  Copyright &copy; 2013 - by <a style="color:#EA5246;" target="_blank" href="http://ppanda.com/what-am-i-in-they-eyes.html">PPanda</a> <a target="_blank" href="http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&amp;email=PAoEDg8ECQgPfE1NEl9TUQ" style="text-decoration:none;">给我写信</a>
+  Copyright &copy; 2014 - by <a style="color:#EA5246;" target="_blank" href="http://ppanda.com/what-am-i-in-they-eyes.html">PPanda</a> <a target="_blank" href="http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&amp;email=PAoEDg8ECQgPfE1NEl9TUQ" style="text-decoration:none;">给我写信</a>
 </p>
 </footer>
 </body>

@@ -4,7 +4,7 @@
   <title><![CDATA[Tag: css3 | 屁熊猫的实验室]]></title>
   <link href="http://PPPanda.github.com/tags/css3/atom.xml" rel="self"/>
   <link href="http://PPPanda.github.com/"/>
-  <updated>2013-11-05T21:26:28+08:00</updated>
+  <updated>2014-10-16T15:12:38+08:00</updated>
   <id>http://PPPanda.github.com/</id>
   <author>
     <name><![CDATA[PPanda]]></name>
@@ -55,182 +55,97 @@
 
 <h4>先来看看canvas版吧,大概代码就这些了</h4>
 
-<p><div class='bogus-wrapper'><notextile><figure class='code'><figcaption><span>canvas版loading </span><a href='http://code.ppanda.com/demo/loading3kind.html'>Demo </a></figcaption> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-<span class='line-number'>16</span>
-<span class='line-number'>17</span>
-<span class='line-number'>18</span>
-<span class='line-number'>19</span>
-<span class='line-number'>20</span>
-<span class='line-number'>21</span>
-<span class='line-number'>22</span>
-<span class='line-number'>23</span>
-<span class='line-number'>24</span>
-<span class='line-number'>25</span>
-<span class='line-number'>26</span>
-<span class='line-number'>27</span>
-</pre></td><td class='code'><pre><code class='js'><span class='line'><span class="o">&lt;</span><span class="err">/p&gt;</span>
-</span><span class='line'>
-</span><span class='line'><span class="o">&lt;</span><span class="nx">pre</span><span class="o">&gt;&lt;</span><span class="nx">code</span><span class="o">&gt;</span><span class="kd">var</span> <span class="nx">c</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">&#39;lOAd&#39;</span><span class="p">);</span>
-</span><span class='line'><span class="kd">var</span> <span class="nx">ctx</span> <span class="o">=</span> <span class="nx">c</span><span class="p">.</span><span class="nx">getContext</span><span class="p">(</span><span class="s1">&#39;2d&#39;</span><span class="p">);</span>
-</span><span class='line'><span class="kd">var</span> <span class="nx">index</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
-</span><span class='line'><span class="nx">setInterval</span><span class="p">(</span><span class="kd">function</span><span class="p">(){</span>
-</span><span class='line'>    <span class="nx">ctx</span><span class="p">.</span><span class="nx">clearRect</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="nx">c</span><span class="p">.</span><span class="nx">width</span><span class="p">,</span><span class="nx">c</span><span class="p">.</span><span class="nx">height</span><span class="p">);</span>
-</span><span class='line'>    <span class="nx">ctx</span><span class="p">.</span><span class="nx">beginPath</span><span class="p">();</span>
-</span><span class='line'>    <span class="nx">ctx</span><span class="p">.</span><span class="nx">lineWidth</span> <span class="o">=</span> <span class="mi">3</span><span class="p">;</span>
-</span><span class='line'>    <span class="nx">ctx</span><span class="p">.</span><span class="nx">arc</span><span class="p">(</span><span class="mi">17</span><span class="p">,</span><span class="mi">17</span><span class="p">,</span><span class="mi">11</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="nb">Math</span><span class="p">.</span><span class="nx">PI</span><span class="o">*</span><span class="mi">2</span><span class="p">,</span><span class="kc">false</span><span class="p">);</span>
-</span><span class='line'>    <span class="nx">ctx</span><span class="p">.</span><span class="nx">closePath</span><span class="p">();</span>
-</span><span class='line'>    <span class="nx">ctx</span><span class="p">.</span><span class="nx">strokeStyle</span> <span class="o">=</span> <span class="s2">&quot;#08c&quot;</span>
-</span><span class='line'>    <span class="nx">ctx</span><span class="p">.</span><span class="nx">lineWidth</span> <span class="o">=</span> <span class="mi">3</span>
-</span><span class='line'>    <span class="nx">ctx</span><span class="p">.</span><span class="nx">stroke</span><span class="p">();</span>
-</span><span class='line'>    <span class="nx">ctx</span><span class="p">.</span><span class="nx">restore</span><span class="p">();</span>
-</span><span class='line'>    <span class="nx">index</span> <span class="o">+=</span> <span class="mi">10</span>
-</span><span class='line'>    <span class="kd">var</span> <span class="nx">x</span> <span class="o">=</span> <span class="mi">11</span><span class="o">*</span><span class="nb">Math</span><span class="p">.</span><span class="nx">cos</span><span class="p">((</span><span class="nx">index</span><span class="p">)</span><span class="o">*</span><span class="nb">Math</span><span class="p">.</span><span class="nx">PI</span><span class="o">/</span><span class="mi">180</span><span class="p">)</span><span class="o">+</span><span class="mi">17</span><span class="p">;</span>
-</span><span class='line'>    <span class="kd">var</span> <span class="nx">y</span> <span class="o">=</span> <span class="mi">11</span><span class="o">*</span><span class="nb">Math</span><span class="p">.</span><span class="nx">sin</span><span class="p">((</span><span class="nx">index</span><span class="p">)</span><span class="o">*</span><span class="nb">Math</span><span class="p">.</span><span class="nx">PI</span><span class="o">/</span><span class="mi">180</span><span class="p">)</span><span class="o">+</span><span class="mi">17</span><span class="p">;</span>
-</span><span class='line'>    <span class="nx">ctx</span><span class="p">.</span><span class="nx">beginPath</span><span class="p">();</span>
-</span><span class='line'>    <span class="nx">ctx</span><span class="p">.</span><span class="nx">arc</span><span class="p">(</span><span class="nx">x</span><span class="p">,</span><span class="nx">y</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="nb">Math</span><span class="p">.</span><span class="nx">PI</span><span class="o">*</span><span class="mi">2</span><span class="p">,</span><span class="kc">false</span><span class="p">);</span>
-</span><span class='line'>    <span class="nx">ctx</span><span class="p">.</span><span class="nx">fillStyle</span> <span class="o">=</span> <span class="s2">&quot;#f60&quot;</span><span class="p">;</span>
-</span><span class='line'>    <span class="nx">ctx</span><span class="p">.</span><span class="nx">closePath</span><span class="p">();</span>
-</span><span class='line'>    <span class="nx">ctx</span><span class="p">.</span><span class="nx">fill</span><span class="p">();</span>
-</span><span class='line'><span class="p">},</span><span class="mi">20</span><span class="p">);</span>
-</span><span class='line'><span class="o">&lt;</span><span class="err">/code&gt;&lt;/pre&gt;</span>
-</span><span class='line'>
-</span><span class='line'><span class="o">&lt;</span><span class="nx">p</span><span class="o">&gt;</span>
-</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+<p>{% codeblock canvas版loading lang:js http://code.ppanda.com/demo/loading3kind.html Demo %}</p>
+
+<pre><code>var c = document.getElementById('lOAd');
+var ctx = c.getContext('2d');
+var index = 0;
+setInterval(function(){
+    ctx.clearRect(0,0,c.width,c.height);
+    ctx.beginPath();
+    ctx.lineWidth = 3;
+    ctx.arc(17,17,11,0,Math.PI*2,false);
+    ctx.closePath();
+    ctx.strokeStyle = "#08c"
+    ctx.lineWidth = 3
+    ctx.stroke();
+    ctx.restore();
+    index += 10
+    var x = 11*Math.cos((index)*Math.PI/180)+17;
+    var y = 11*Math.sin((index)*Math.PI/180)+17;
+    ctx.beginPath();
+    ctx.arc(x,y,5,0,Math.PI*2,false);
+    ctx.fillStyle = "#f60";
+    ctx.closePath();
+    ctx.fill();
+},20);
+</code></pre>
+
+<p>{% endcodeblock %}</p>
 
 <!--more -->
 
 
 <h4>css3版,这个比较简单</h4>
 
-<p><div class='bogus-wrapper'><notextile><figure class='code'><figcaption><span>css3版loading </span><a href='http://code.ppanda.com/demo/loading3kind.html'>Demo </a></figcaption> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-</pre></td><td class='code'><pre><code class='js'><span class='line'><span class="o">&lt;</span><span class="err">/p&gt;</span>
-</span><span class='line'>
-</span><span class='line'><span class="o">&lt;</span><span class="nx">pre</span><span class="o">&gt;&lt;</span><span class="nx">code</span><span class="o">&gt;</span><span class="p">.</span><span class="nx">loadBg</span><span class="p">{</span><span class="nx">position</span><span class="o">:</span><span class="nx">relative</span><span class="p">;</span><span class="nx">display</span><span class="o">:</span><span class="nx">inline</span><span class="o">-</span><span class="nx">block</span><span class="p">;</span><span class="nx">border</span><span class="o">:</span><span class="mi">3</span><span class="nx">px</span> <span class="nx">solid</span> <span class="err">#</span><span class="mi">08</span><span class="nx">c</span><span class="p">;</span><span class="nx">height</span><span class="o">:</span><span class="mi">17</span><span class="nx">px</span><span class="p">;</span><span class="nx">width</span><span class="o">:</span><span class="mi">17</span><span class="nx">px</span><span class="p">;</span><span class="nx">border</span><span class="o">-</span><span class="nx">radius</span><span class="o">:</span><span class="mi">17</span><span class="nx">px</span><span class="p">;</span><span class="o">-</span><span class="nx">webkit</span><span class="o">-</span><span class="nx">animation</span><span class="o">-</span><span class="nx">name</span><span class="o">:</span><span class="nx">loading</span><span class="p">;</span><span class="o">-</span><span class="nx">webkit</span><span class="o">-</span><span class="nx">animation</span><span class="o">-</span><span class="nx">duration</span><span class="o">:</span><span class="p">.</span><span class="mi">7</span><span class="nx">s</span><span class="p">;</span><span class="o">-</span><span class="nx">webkit</span><span class="o">-</span><span class="nx">animation</span><span class="o">-</span><span class="nx">iteration</span><span class="o">-</span><span class="nx">count</span><span class="o">:</span><span class="mi">9000</span><span class="p">;</span><span class="o">-</span><span class="nx">webkit</span><span class="o">-</span><span class="nx">animation</span><span class="o">-</span><span class="nx">timing</span><span class="o">-</span><span class="kd">function</span><span class="o">:</span><span class="nx">linear</span><span class="p">;</span><span class="nx">vertical</span><span class="o">-</span><span class="nx">align</span><span class="o">:</span><span class="nx">middle</span><span class="p">;}</span>
-</span><span class='line'><span class="p">.</span><span class="nx">loadBg</span> <span class="nx">em</span><span class="p">{</span><span class="nx">position</span><span class="o">:</span><span class="nx">absolute</span><span class="p">;</span><span class="nx">left</span><span class="o">:-</span><span class="mi">5</span><span class="nx">px</span><span class="p">;</span><span class="nx">top</span><span class="o">:</span><span class="mi">3</span><span class="nx">px</span><span class="p">;</span><span class="nx">height</span><span class="o">:</span><span class="mi">9</span><span class="nx">px</span><span class="p">;</span><span class="nx">width</span><span class="o">:</span><span class="mi">9</span><span class="nx">px</span><span class="p">;</span><span class="nx">background</span><span class="o">:</span><span class="err">#</span><span class="nx">f60</span><span class="p">;</span><span class="nx">border</span><span class="o">-</span><span class="nx">radius</span><span class="o">:</span><span class="mi">8</span><span class="nx">px</span><span class="p">;}</span>
-</span><span class='line'><span class="err">@</span><span class="o">-</span><span class="nx">webkit</span><span class="o">-</span><span class="nx">keyframes</span> <span class="nx">loading</span> <span class="p">{</span><span class="mi">0</span><span class="o">%</span> <span class="p">{</span><span class="o">-</span><span class="nx">webkit</span><span class="o">-</span><span class="nx">transform</span><span class="o">:</span><span class="nx">rotate</span><span class="p">(</span><span class="mi">0</span><span class="nx">deg</span><span class="p">);</span> <span class="p">}</span> <span class="mi">100</span><span class="o">%</span> <span class="p">{</span><span class="o">-</span><span class="nx">webkit</span><span class="o">-</span><span class="nx">transform</span><span class="o">:</span><span class="nx">rotate</span><span class="p">(</span><span class="mi">360</span><span class="nx">deg</span><span class="p">);</span> <span class="p">}</span> <span class="p">}</span>
-</span><span class='line'><span class="o">&lt;</span><span class="err">/code&gt;&lt;/pre&gt;</span>
-</span><span class='line'>
-</span><span class='line'><span class="o">&lt;</span><span class="nx">p</span><span class="o">&gt;</span>
-</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+<p>{% codeblock css3版loading lang:js http://code.ppanda.com/demo/loading3kind.html Demo %}</p>
+
+<pre><code>.loadBg{position:relative;display:inline-block;border:3px solid #08c;height:17px;width:17px;border-radius:17px;-webkit-animation-name:loading;-webkit-animation-duration:.7s;-webkit-animation-iteration-count:9000;-webkit-animation-timing-function:linear;vertical-align:middle;}
+.loadBg em{position:absolute;left:-5px;top:3px;height:9px;width:9px;background:#f60;border-radius:8px;}
+@-webkit-keyframes loading {0% {-webkit-transform:rotate(0deg); } 100% {-webkit-transform:rotate(360deg); } }
+</code></pre>
+
+<p>{% endcodeblock %}</p>
 
 <h3>下面赠送一个svg的,svg可以绑定事件,如 <code>onclick</code> ,甚至可以向dom元素一样控制,这样就给代码发挥了更大的想象空间.</h3>
 
-<p><div class='bogus-wrapper'><notextile><figure class='code'><figcaption><span>svg的logo </span><a href='http://code.ppanda.com/demo/suningsvg.html'>Demo </a></figcaption> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-<span class='line-number'>16</span>
-<span class='line-number'>17</span>
-<span class='line-number'>18</span>
-<span class='line-number'>19</span>
-<span class='line-number'>20</span>
-<span class='line-number'>21</span>
-<span class='line-number'>22</span>
-<span class='line-number'>23</span>
-<span class='line-number'>24</span>
-<span class='line-number'>25</span>
-<span class='line-number'>26</span>
-<span class='line-number'>27</span>
-<span class='line-number'>28</span>
-<span class='line-number'>29</span>
-<span class='line-number'>30</span>
-<span class='line-number'>31</span>
-<span class='line-number'>32</span>
-<span class='line-number'>33</span>
-<span class='line-number'>34</span>
-<span class='line-number'>35</span>
-<span class='line-number'>36</span>
-<span class='line-number'>37</span>
-<span class='line-number'>38</span>
-<span class='line-number'>39</span>
-<span class='line-number'>40</span>
-<span class='line-number'>41</span>
-<span class='line-number'>42</span>
-<span class='line-number'>43</span>
-<span class='line-number'>44</span>
-<span class='line-number'>45</span>
-<span class='line-number'>46</span>
-<span class='line-number'>47</span>
-</pre></td><td class='code'><pre><code class='js'><span class='line'><span class="o">&lt;</span><span class="err">/p&gt;</span>
-</span><span class='line'>
-</span><span class='line'><span class="o">&lt;</span><span class="nx">pre</span><span class="o">&gt;&lt;</span><span class="nx">code</span><span class="o">&gt;&amp;</span><span class="nx">lt</span><span class="p">;</span><span class="nx">svg</span> <span class="kr">class</span><span class="o">=</span><span class="s2">&quot;s&quot;</span> <span class="nx">version</span><span class="o">=</span><span class="s2">&quot;1.0&quot;</span> <span class="nx">xmlns</span><span class="o">=</span><span class="s2">&quot;http://www.w3.org/2000/svg&quot;</span> <span class="nx">xmlns</span><span class="o">:</span><span class="nx">xlink</span><span class="o">=</span><span class="s2">&quot;http://www.w3.org/1999/xlink&quot;</span> <span class="nx">x</span><span class="o">=</span><span class="s2">&quot;0px&quot;</span> <span class="nx">y</span><span class="o">=</span><span class="s2">&quot;0px&quot;</span>
-</span><span class='line'> <span class="nx">width</span><span class="o">=</span><span class="s2">&quot;33.68px&quot;</span> <span class="nx">height</span><span class="o">=</span><span class="s2">&quot;42.11px&quot;</span> <span class="nx">viewBox</span><span class="o">=</span><span class="s2">&quot;0 0 33.68 42.11&quot;</span> <span class="nx">enable</span><span class="o">-</span><span class="nx">background</span><span class="o">=</span><span class="s2">&quot;new 0 0 33.68 42.11&quot;</span> <span class="nx">xml</span><span class="o">:</span><span class="nx">space</span><span class="o">=</span><span class="s2">&quot;preserve&quot;</span><span class="o">&amp;</span><span class="nx">gt</span><span class="p">;</span>
-</span><span class='line'><span class="o">&amp;</span><span class="nx">lt</span><span class="p">;</span><span class="nx">path</span> <span class="nx">onclick</span><span class="o">=</span><span class="s2">&quot;alert(&#39;草泥马&#39;)&quot;</span> <span class="nx">fill</span><span class="o">=</span><span class="s2">&quot;#0081CC&quot;</span> <span class="nx">d</span><span class="o">=</span><span class="s2">&quot;M20.212,17.539c-3.969-1.199-8.268-2.355-8.35-5.789c-0.08-2.89,3.678-4.623,7.687-4.664 c3.017-0.043,6.034,0.497,10.373,2.064l2.603-6.442C27.193,0.638,22.4,0.063,18.639,0.021C9.923-0.061,1.289,3.943,1.49,12.415</span>
-</span><span class='line'><span class="s2">C1.66,20.1,8.765,22.581,14.593,24.192c2.972,0.822,9.587,2.355,8.84,6.734c-0.537,3.018-4.089,3.928-7.604,4.051</span>
-</span><span class='line'><span class="s2">c-4.172,0.123-8.883-1.283-12.767-2.48L0.005,38.61c4.504,2.027,11.529,3.516,16.859,3.516c8.182,0,15.866-3.268,16.733-10.742</span>
-</span><span class='line'><span class="s2">C34.589,22.788,27.235,19.77,20.212,17.539z&quot;</span><span class="o">/&amp;</span><span class="nx">gt</span><span class="p">;</span>
-</span><span class='line'><span class="o">&amp;</span><span class="nx">lt</span><span class="p">;</span><span class="err">/svg&amp;gt;</span>
-</span><span class='line'><span class="o">&amp;</span><span class="nx">lt</span><span class="p">;</span><span class="nx">svg</span> <span class="kr">class</span><span class="o">=</span><span class="s2">&quot;u&quot;</span> <span class="nx">version</span><span class="o">=</span><span class="s2">&quot;1.1&quot;</span> <span class="nx">id</span><span class="o">=</span><span class="s2">&quot;1&quot;</span> <span class="nx">xmlns</span><span class="o">=</span><span class="s2">&quot;http://www.w3.org/2000/svg&quot;</span> <span class="nx">xmlns</span><span class="o">:</span><span class="nx">xlink</span><span class="o">=</span><span class="s2">&quot;http://www.w3.org/1999/xlink&quot;</span> <span class="nx">x</span><span class="o">=</span><span class="s2">&quot;   0px&quot;</span> <span class="nx">y</span><span class="o">=</span><span class="s2">&quot;0px&quot;</span>
-</span><span class='line'>     <span class="nx">width</span><span class="o">=</span><span class="s2">&quot;31.36px&quot;</span> <span class="nx">height</span><span class="o">=</span><span class="s2">&quot;31.36px&quot;</span> <span class="nx">viewBox</span><span class="o">=</span><span class="s2">&quot;0 0 31.36 31.36&quot;</span> <span class="nx">enable</span><span class="o">-</span><span class="nx">background</span><span class="o">=</span><span class="s2">&quot;new 0 0 31.36 31.36&quot;</span> <span class="nx">xml</span><span class="o">:</span><span class="nx">space</span><span class="o">=</span><span class="s2">&quot; preserve&quot;</span><span class="o">&amp;</span><span class="nx">gt</span><span class="p">;</span>
-</span><span class='line'><span class="o">&amp;</span><span class="nx">lt</span><span class="p">;</span><span class="nx">path</span> <span class="nx">fill</span><span class="o">=</span><span class="s2">&quot;#0081CC&quot;</span> <span class="nx">d</span><span class="o">=</span><span class="s2">&quot;M21.361,19.665c0,3.883-1.9,5.945-5.662,5.945c-3.799,0-5.742-2.063-5.742-5.945V-0.003H0v20.083</span>
-</span><span class='line'><span class="s2">    c0,9.754,8.678,11.236,15.744,11.281c7.932,0,15.618-1.945,15.618-11.281V-0.003h-10V19.665z&quot;</span><span class="o">/&amp;</span><span class="nx">gt</span><span class="p">;</span>
-</span><span class='line'><span class="o">&amp;</span><span class="nx">lt</span><span class="p">;</span><span class="err">/svg&amp;gt;</span>
-</span><span class='line'><span class="o">&amp;</span><span class="nx">lt</span><span class="p">;</span><span class="nx">svg</span> <span class="kr">class</span><span class="o">=</span><span class="s2">&quot;n&quot;</span> <span class="nx">version</span><span class="o">=</span><span class="s2">&quot;1.1&quot;</span> <span class="nx">xmlns</span><span class="o">=</span><span class="s2">&quot;http://www.w3.org/2000/svg&quot;</span> <span class="nx">xmlns</span><span class="o">:</span><span class="nx">xlink</span><span class="o">=</span><span class="s2">&quot;http://www.w3.org/1999/xlink&quot;</span> <span class="nx">x</span><span class="o">=</span><span class="s2">&quot;0px&quot;</span> <span class="nx">y</span><span class="o">=</span><span class="s2">&quot;  0px&quot;</span>
-</span><span class='line'>     <span class="nx">width</span><span class="o">=</span><span class="s2">&quot;31.36px&quot;</span> <span class="nx">height</span><span class="o">=</span><span class="s2">&quot;32.72px&quot;</span> <span class="nx">viewBox</span><span class="o">=</span><span class="s2">&quot;0 0 31.36 32.72&quot;</span> <span class="nx">enable</span><span class="o">-</span><span class="nx">background</span><span class="o">=</span><span class="s2">&quot;new 0 0 31.36 32.72&quot;</span> <span class="nx">xml</span><span class="o">:</span><span class="nx">space</span><span class="o">=</span><span class="s2">&quot; preserve&quot;</span><span class="o">&amp;</span><span class="nx">gt</span><span class="p">;</span>
-</span><span class='line'><span class="o">&amp;</span><span class="nx">lt</span><span class="p">;</span><span class="nx">path</span> <span class="nx">fill</span><span class="o">=</span><span class="s2">&quot;#0081CC&quot;</span> <span class="nx">d</span><span class="o">=</span><span class="s2">&quot;M15.619,0C7.641,0-0.001,1.9-0.001,11.278v21.443h9.956v-21.03c0-3.882,1.901-5.946,5.705-5.946</span>
-</span><span class='line'><span class="s2">    c3.802,0,5.701,2.064,5.701,5.946v21.03h9.999V11.278C31.36,1.527,22.645,0,15.619,0z&quot;</span><span class="o">/&amp;</span><span class="nx">gt</span><span class="p">;</span>
-</span><span class='line'><span class="o">&amp;</span><span class="nx">lt</span><span class="p">;</span><span class="err">/svg&amp;gt;</span>
-</span><span class='line'><span class="o">&amp;</span><span class="nx">lt</span><span class="p">;</span><span class="nx">svg</span> <span class="kr">class</span><span class="o">=</span><span class="s2">&quot;d1&quot;</span> <span class="nx">id</span><span class="o">=</span><span class="s2">&quot;dian&quot;</span> <span class="nx">version</span><span class="o">=</span><span class="s2">&quot;1.1&quot;</span> <span class="nx">xmlns</span><span class="o">=</span><span class="s2">&quot;http://www.w3.org/2000/svg&quot;</span> <span class="nx">xmlns</span><span class="o">:</span><span class="nx">xlink</span><span class="o">=</span><span class="s2">&quot;http://www.w3.org/1999/xlink&quot;</span> <span class="o">&amp;</span><span class="nx">lt</span><span class="p">;</span><span class="nx">x</span><span class="o">&amp;</span><span class="nx">gt</span><span class="p">;</span>   <span class="o">&amp;</span><span class="nx">lt</span><span class="p">;</span><span class="err">/x&amp;gt;=&quot;0px&quot; y=&quot;0px&quot;</span>
-</span><span class='line'>     <span class="nx">width</span><span class="o">=</span><span class="s2">&quot;12.31px&quot;</span> <span class="nx">height</span><span class="o">=</span><span class="s2">&quot;12.36px&quot;</span> <span class="nx">viewBox</span><span class="o">=</span><span class="s2">&quot;0 0 12.31 12.36&quot;</span> <span class="nx">enable</span><span class="o">-</span><span class="nx">background</span><span class="o">=</span><span class="s2">&quot;new 0 0 12.31 12.36&quot;</span> <span class="nx">xml</span><span class="o">:</span><span class="nx">space</span><span class="o">=</span><span class="s2">&quot; preserve&quot;</span><span class="o">&amp;</span><span class="nx">gt</span><span class="p">;</span>
-</span><span class='line'><span class="o">&amp;</span><span class="nx">lt</span><span class="p">;</span><span class="nx">path</span> <span class="nx">fill</span><span class="o">=</span><span class="s2">&quot;#F8B500&quot;</span> <span class="nx">d</span><span class="o">=</span><span class="s2">&quot;M6.155,0c-3.39,0-6.158,2.77-6.158,6.197c0,3.389,2.768,6.158,6.158,6.158c3.428,0,6.156-2.77,&amp;lt;6 class=&quot;&quot;&amp;gt;&amp;lt;/6&amp;gt;156-6.158</span>
-</span><span class='line'><span class="s2">C12.312,2.77,9.583,0,6.155,0z&quot;</span><span class="o">/&amp;</span><span class="nx">gt</span><span class="p">;</span>
-</span><span class='line'><span class="o">&amp;</span><span class="nx">lt</span><span class="p">;</span><span class="err">/svg&amp;gt;</span>
-</span><span class='line'><span class="o">&amp;</span><span class="nx">lt</span><span class="p">;</span><span class="nx">svg</span> <span class="kr">class</span><span class="o">=</span><span class="s2">&quot;i&quot;</span> <span class="nx">version</span><span class="o">=</span><span class="s2">&quot;1.0&quot;</span> <span class="nx">xmlns</span><span class="o">=</span><span class="s2">&quot;http://www.w3.org/2000/svg&quot;</span> <span class="nx">xmlns</span><span class="o">:</span><span class="nx">xlink</span><span class="o">=</span><span class="s2">&quot;http://www.w3.org/1999/xlink&quot;</span> <span class="nx">x</span><span class="o">=</span><span class="s2">&quot;0px&quot;</span> <span class="nx">y</span><span class="o">=</span><span class="s2">&quot;  0px&quot;</span>
-</span><span class='line'>     <span class="nx">width</span><span class="o">=</span><span class="s2">&quot;9.96px&quot;</span> <span class="nx">height</span><span class="o">=</span><span class="s2">&quot;30.7px&quot;</span> <span class="nx">viewBox</span><span class="o">=</span><span class="s2">&quot;0 0 9.96 30.7&quot;</span> <span class="nx">enable</span><span class="o">-</span><span class="nx">background</span><span class="o">=</span><span class="s2">&quot;new 0 0 9.96 30.7&quot;</span> <span class="nx">xml</span><span class="o">:</span><span class="nx">space</span><span class="o">=</span><span class="s2">&quot;preserve&quot;</span><span class="o">&amp;</span><span class="nx">gt</span><span class="p">;</span>
-</span><span class='line'><span class="o">&amp;</span><span class="nx">lt</span><span class="p">;</span><span class="nx">rect</span> <span class="nx">fill</span><span class="o">=</span><span class="s2">&quot;#0081CC&quot;</span> <span class="nx">width</span><span class="o">=</span><span class="s2">&quot;9.961&quot;</span> <span class="nx">height</span><span class="o">=</span><span class="s2">&quot;30.699&quot;</span><span class="o">/&amp;</span><span class="nx">gt</span><span class="p">;</span>
-</span><span class='line'><span class="o">&amp;</span><span class="nx">lt</span><span class="p">;</span><span class="err">/svg&amp;gt;</span>
-</span><span class='line'><span class="o">&amp;</span><span class="nx">lt</span><span class="p">;</span><span class="nx">svg</span> <span class="kr">class</span><span class="o">=</span><span class="s2">&quot;n2&quot;</span> <span class="nx">version</span><span class="o">=</span><span class="s2">&quot;1.1&quot;</span> <span class="nx">xmlns</span><span class="o">=</span><span class="s2">&quot;http://www.w3.org/2000/svg&quot;</span> <span class="nx">xmlns</span><span class="o">:</span><span class="nx">xlink</span><span class="o">=</span><span class="s2">&quot;http://www.w3.org/1999/xlink&quot;</span> <span class="nx">x</span><span class="o">=</span><span class="s2">&quot;0px&quot;</span> <span class="nx">y</span><span class="o">=</span><span class="s2">&quot; 0px&quot;</span>
-</span><span class='line'>     <span class="nx">width</span><span class="o">=</span><span class="s2">&quot;31.36px&quot;</span> <span class="nx">height</span><span class="o">=</span><span class="s2">&quot;32.72px&quot;</span> <span class="nx">viewBox</span><span class="o">=</span><span class="s2">&quot;0 0 31.36 32.72&quot;</span> <span class="nx">enable</span><span class="o">-</span><span class="nx">background</span><span class="o">=</span><span class="s2">&quot;new 0 0 31.36 32.72&quot;</span> <span class="nx">xml</span><span class="o">:</span><span class="nx">space</span><span class="o">=</span><span class="s2">&quot; preserve&quot;</span><span class="o">&amp;</span><span class="nx">gt</span><span class="p">;</span>
-</span><span class='line'><span class="o">&amp;</span><span class="nx">lt</span><span class="p">;</span><span class="nx">path</span> <span class="nx">fill</span><span class="o">=</span><span class="s2">&quot;#0081CC&quot;</span> <span class="nx">d</span><span class="o">=</span><span class="s2">&quot;M15.619,0C7.641,0-0.001,1.9-0.001,11.278v21.443h9.956v-21.03c0-3.882,1.901-5.946,5.705-5.946</span>
-</span><span class='line'><span class="s2">    c3.802,0,5.701,2.064,5.701,5.946v21.03h9.999V11.278C31.36,1.527,22.645,0,15.619,0z&quot;</span><span class="o">/&amp;</span><span class="nx">gt</span><span class="p">;</span>
-</span><span class='line'><span class="o">&amp;</span><span class="nx">lt</span><span class="p">;</span><span class="err">/svg&amp;gt;</span>
-</span><span class='line'><span class="o">&amp;</span><span class="nx">lt</span><span class="p">;</span><span class="nx">svg</span> <span class="nx">id</span><span class="o">=</span><span class="s2">&quot;g&quot;</span> <span class="kr">class</span><span class="o">=</span><span class="s2">&quot;g&quot;</span> <span class="nx">version</span><span class="o">=</span><span class="s2">&quot;1.0&quot;</span> <span class="nx">xmlns</span><span class="o">=</span><span class="s2">&quot;http://www.w3.org/2000/svg&quot;</span> <span class="nx">xmlns</span><span class="o">:</span><span class="nx">xlink</span><span class="o">=</span><span class="s2">&quot;http://www.w3.org/1999/xlink&quot;</span> <span class="nx">x</span><span class="o">=</span><span class="s2">&quot;   0px&quot;</span> <span class="nx">y</span><span class="o">=</span><span class="s2">&quot;0px&quot;</span>
-</span><span class='line'>     <span class="nx">width</span><span class="o">=</span><span class="s2">&quot;32.4px&quot;</span> <span class="nx">height</span><span class="o">=</span><span class="s2">&quot;48.9px&quot;</span> <span class="nx">viewBox</span><span class="o">=</span><span class="s2">&quot;0 0 32.4 48.9&quot;</span> <span class="nx">enable</span><span class="o">-</span><span class="nx">background</span><span class="o">=</span><span class="s2">&quot;new 0 0 32.4 48.9&quot;</span> <span class="nx">xml</span><span class="o">:</span><span class="nx">space</span><span class="o">=</span><span class="s2">&quot;preserve&quot;</span><span class="o">&amp;</span><span class="nx">gt</span><span class="p">;</span>
-</span><span class='line'><span class="o">&amp;</span><span class="nx">lt</span><span class="p">;</span><span class="nx">path</span> <span class="nx">fill</span><span class="o">=</span><span class="s2">&quot;#0081CC&quot;</span> <span class="nx">d</span><span class="o">=</span><span class="s2">&quot;M16.284,33.41c2.232,0.08,4.583-0.086,6.648-0.539c0.043,2.895-0.205,5.867-3.182,7.682</span>
-</span><span class='line'><span class="s2">c-0.865,0.459-1.609,0.828-3.466,1.117v7.234c5.906-0.043,9.914-1.777,12.56-4.918c2.355-2.727,3.469-6.611,3.555-11.486V2.172</span>
-</span><span class='line'><span class="s2">c-4.67-1.82-10.539-2.441-16.115-2.069v6.532c0.08,0,0.205-0.042,0.285-0.083c1.861-0.417,4.673-0.375,6.326,0.456v19.539</span>
-</span><span class='line'><span class="s2">c-2.15,0.748-4.709,0.748-6.488,0.332c-0.043,0-0.084,0-0.123-0.041V33.41z M16.241,0.103h-0.039</span>
-</span><span class='line'><span class="s2">C5.663,0.849,0.043,7.669,0.002,17.253c-0.084,9.543,4.793,15.288,15.369,16.071c0.287,0.041,0.582,0.041,0.869,0.086h0.043v-6.572</span>
-</span><span class='line'><span class="s2">h-0.043c-4.297-1.033-6.736-4.42-6.57-9.916c0.125-5.371,2.438-9.253,6.57-10.287h0.043V0.103H16.241L16.241,0.103z M16.284,41.67</span>
-</span><span class='line'><span class="s2">c-0.291,0.043-0.58,0.086-0.912,0.086c-3.428,0.41-7.064-0.375-11.195-2.232l-2.936,5.455c4.709,2.52,9.549,3.758,13.389,3.926</span>
-</span><span class='line'><span class="s2">c0.578,0,1.115,0,1.654,0V41.67z&quot;</span><span class="o">/&amp;</span><span class="nx">gt</span><span class="p">;</span>
-</span><span class='line'><span class="o">&amp;</span><span class="nx">lt</span><span class="p">;</span><span class="err">/svg&amp;gt;</span>
-</span><span class='line'><span class="o">&lt;</span><span class="err">/code&gt;&lt;/pre&gt;</span>
-</span><span class='line'>
-</span><span class='line'><span class="o">&lt;</span><span class="nx">p</span><span class="o">&gt;</span>
-</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+<p>{% codeblock svg的logo lang:js http://code.ppanda.com/demo/suningsvg.html Demo %}</p>
+
+<pre><code>&lt;svg class="s" version="1.0" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+ width="33.68px" height="42.11px" viewBox="0 0 33.68 42.11" enable-background="new 0 0 33.68 42.11" xml:space="preserve"&gt;
+&lt;path onclick="alert('草泥马')" fill="#0081CC" d="M20.212,17.539c-3.969-1.199-8.268-2.355-8.35-5.789c-0.08-2.89,3.678-4.623,7.687-4.664 c3.017-0.043,6.034,0.497,10.373,2.064l2.603-6.442C27.193,0.638,22.4,0.063,18.639,0.021C9.923-0.061,1.289,3.943,1.49,12.415
+C1.66,20.1,8.765,22.581,14.593,24.192c2.972,0.822,9.587,2.355,8.84,6.734c-0.537,3.018-4.089,3.928-7.604,4.051
+c-4.172,0.123-8.883-1.283-12.767-2.48L0.005,38.61c4.504,2.027,11.529,3.516,16.859,3.516c8.182,0,15.866-3.268,16.733-10.742
+C34.589,22.788,27.235,19.77,20.212,17.539z"/&gt;
+&lt;/svg&gt;
+&lt;svg class="u" version="1.1" id="1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="   0px" y="0px"
+     width="31.36px" height="31.36px" viewBox="0 0 31.36 31.36" enable-background="new 0 0 31.36 31.36" xml:space=" preserve"&gt;
+&lt;path fill="#0081CC" d="M21.361,19.665c0,3.883-1.9,5.945-5.662,5.945c-3.799,0-5.742-2.063-5.742-5.945V-0.003H0v20.083
+    c0,9.754,8.678,11.236,15.744,11.281c7.932,0,15.618-1.945,15.618-11.281V-0.003h-10V19.665z"/&gt;
+&lt;/svg&gt;
+&lt;svg class="n" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="  0px"
+     width="31.36px" height="32.72px" viewBox="0 0 31.36 32.72" enable-background="new 0 0 31.36 32.72" xml:space=" preserve"&gt;
+&lt;path fill="#0081CC" d="M15.619,0C7.641,0-0.001,1.9-0.001,11.278v21.443h9.956v-21.03c0-3.882,1.901-5.946,5.705-5.946
+    c3.802,0,5.701,2.064,5.701,5.946v21.03h9.999V11.278C31.36,1.527,22.645,0,15.619,0z"/&gt;
+&lt;/svg&gt;
+&lt;svg class="d1" id="dian" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" &lt;x&gt;   &lt;/x&gt;="0px" y="0px"
+     width="12.31px" height="12.36px" viewBox="0 0 12.31 12.36" enable-background="new 0 0 12.31 12.36" xml:space=" preserve"&gt;
+&lt;path fill="#F8B500" d="M6.155,0c-3.39,0-6.158,2.77-6.158,6.197c0,3.389,2.768,6.158,6.158,6.158c3.428,0,6.156-2.77,&lt;6 class=""&gt;&lt;/6&gt;156-6.158
+C12.312,2.77,9.583,0,6.155,0z"/&gt;
+&lt;/svg&gt;
+&lt;svg class="i" version="1.0" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="  0px"
+     width="9.96px" height="30.7px" viewBox="0 0 9.96 30.7" enable-background="new 0 0 9.96 30.7" xml:space="preserve"&gt;
+&lt;rect fill="#0081CC" width="9.961" height="30.699"/&gt;
+&lt;/svg&gt;
+&lt;svg class="n2" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y=" 0px"
+     width="31.36px" height="32.72px" viewBox="0 0 31.36 32.72" enable-background="new 0 0 31.36 32.72" xml:space=" preserve"&gt;
+&lt;path fill="#0081CC" d="M15.619,0C7.641,0-0.001,1.9-0.001,11.278v21.443h9.956v-21.03c0-3.882,1.901-5.946,5.705-5.946
+    c3.802,0,5.701,2.064,5.701,5.946v21.03h9.999V11.278C31.36,1.527,22.645,0,15.619,0z"/&gt;
+&lt;/svg&gt;
+&lt;svg id="g" class="g" version="1.0" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="   0px" y="0px"
+     width="32.4px" height="48.9px" viewBox="0 0 32.4 48.9" enable-background="new 0 0 32.4 48.9" xml:space="preserve"&gt;
+&lt;path fill="#0081CC" d="M16.284,33.41c2.232,0.08,4.583-0.086,6.648-0.539c0.043,2.895-0.205,5.867-3.182,7.682
+c-0.865,0.459-1.609,0.828-3.466,1.117v7.234c5.906-0.043,9.914-1.777,12.56-4.918c2.355-2.727,3.469-6.611,3.555-11.486V2.172
+c-4.67-1.82-10.539-2.441-16.115-2.069v6.532c0.08,0,0.205-0.042,0.285-0.083c1.861-0.417,4.673-0.375,6.326,0.456v19.539
+c-2.15,0.748-4.709,0.748-6.488,0.332c-0.043,0-0.084,0-0.123-0.041V33.41z M16.241,0.103h-0.039
+C5.663,0.849,0.043,7.669,0.002,17.253c-0.084,9.543,4.793,15.288,15.369,16.071c0.287,0.041,0.582,0.041,0.869,0.086h0.043v-6.572
+h-0.043c-4.297-1.033-6.736-4.42-6.57-9.916c0.125-5.371,2.438-9.253,6.57-10.287h0.043V0.103H16.241L16.241,0.103z M16.284,41.67
+c-0.291,0.043-0.58,0.086-0.912,0.086c-3.428,0.41-7.064-0.375-11.195-2.232l-2.936,5.455c4.709,2.52,9.549,3.758,13.389,3.926
+c0.578,0,1.115,0,1.654,0V41.67z"/&gt;
+&lt;/svg&gt;
+</code></pre>
+
+<p>{% endcodeblock %}</p>
 ]]></content>
   </entry>
   

@@ -4,7 +4,7 @@
   <title><![CDATA[屁熊猫的实验室]]></title>
   <link href="http://PPPanda.github.com/atom.xml" rel="self"/>
   <link href="http://PPPanda.github.com/"/>
-  <updated>2013-11-05T21:26:28+08:00</updated>
+  <updated>2014-10-16T15:12:22+08:00</updated>
   <id>http://PPPanda.github.com/</id>
   <author>
     <name><![CDATA[PPanda]]></name>
@@ -12,6 +12,24 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[test page]]></title>
+    <link href="http://PPPanda.github.com/article/test-page.html"/>
+    <updated>2014-10-16T15:12:00+08:00</updated>
+    <id>http://PPPanda.github.com/article/test-page</id>
+    <content type="html"><![CDATA[
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[手机端webApp调试方式]]></title>
+    <link href="http://PPPanda.github.com/article/debug-in-webkit.html"/>
+    <updated>2013-12-26T17:12:00+08:00</updated>
+    <id>http://PPPanda.github.com/article/debug-in-webkit</id>
+    <content type="html"><![CDATA[<p>在处理手机端浏览器</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[webkit-font-smoothing]]></title>
@@ -327,74 +345,6 @@
   </entry>
   
   <entry>
-    <title type="html"><![CDATA[javascript代码设计浅析]]></title>
-    <link href="http://PPPanda.github.com/article/javascript-patterns.html"/>
-    <updated>2013-01-30T15:46:00+08:00</updated>
-    <id>http://PPPanda.github.com/article/javascript-patterns</id>
-    <content type="html"><![CDATA[<h3>单例模式</h3>
-
-<blockquote><p>定义 - 单件模式确保一个类只有一个实例，并且提供一个全局访问点。</p></blockquote>
-
-<p>在javascript中通常我们会创建一个命名空间来包含所有的功能代码. 个人认为单例模式的好处就是可以在多人开发时避免代码的冲突,还可以更好的控制页面里的功能.
-实际上，单件模式也许是我们日常前端JS开发中使用频率最高的设计模式。</p>
-
-<figure class='code'><figcaption><span>单例模式  </span></figcaption>
- <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-</pre></td><td class='code'><pre><code class='js'><span class='line'><span class="kd">var</span> <span class="nx">SNTouch</span> <span class="o">=</span> <span class="p">{</span>
-</span><span class='line'>  <span class="nx">Version</span><span class="o">:</span> <span class="s2">&quot;0.7&quot;</span><span class="p">,</span>
-</span><span class='line'>  <span class="nx">Author</span><span class="o">:</span> <span class="s2">&quot;PPanda&quot;</span><span class="p">,</span>
-</span><span class='line'>  <span class="nx">init</span><span class="o">:</span> <span class="kd">function</span><span class="p">(){},</span>
-</span><span class='line'>  <span class="nx">Widget</span><span class="o">:</span> <span class="p">{}</span>
-</span><span class='line'>
-</span><span class='line'><span class="p">}</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<h3>工厂模式</h3>
-
-<blockquote><p>定义 - <em>抽象工厂模式</em>是每个抽象产品派生多个具体产品类，每个抽象工厂派生多个具体工厂类，每个具体工厂负责多个（一系列）具体产品的实例创建。<em>工厂方法模式</em>是每个抽象产品派生多个具体产品类，每个抽象工厂类派生多个具体工厂类，每个具体工厂类负责一个具体产品的实例创建。</p></blockquote>
-
-<figure class='code'><figcaption><span>工厂模式  </span></figcaption>
- <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-</pre></td><td class='code'><pre><code class='js'><span class='line'><span class="kd">function</span> <span class="nx">Product</span><span class="p">(){}</span>
-</span><span class='line'>
-</span><span class='line'><span class="nx">Product</span><span class="p">.</span><span class="nx">prototype</span> <span class="o">=</span> <span class="p">{</span>
-</span><span class='line'>  <span class="nx">layload</span> <span class="o">:</span> <span class="kd">function</span><span class="p">(){},</span>
-</span><span class='line'>  <span class="nx">popBox</span> <span class="o">:</span> <span class="kd">function</span><span class="p">(){}</span>
-</span><span class='line'><span class="p">}</span>
-</span><span class='line'>
-</span><span class='line'><span class="c1">//...</span>
-</span><span class='line'>
-</span><span class='line'><span class="nx">$PV</span><span class="p">.</span><span class="nx">extend</span><span class="p">(</span><span class="nx">$PV</span><span class="p">.</span><span class="nx">Ready</span><span class="p">.</span><span class="nx">pro_shoucang</span><span class="p">,</span> <span class="nx">Product</span><span class="p">);</span>
-</span><span class='line'><span class="nx">$</span><span class="p">(</span><span class="s2">&quot;#shoucang&quot;</span><span class="p">).</span><span class="nx">click</span><span class="p">(</span><span class="kd">function</span><span class="p">(){</span>
-</span><span class='line'>  <span class="nx">$PV</span><span class="p">.</span><span class="nx">Ready</span><span class="p">.</span><span class="nx">pro_shoucang</span><span class="p">.</span><span class="nx">base</span><span class="p">.</span><span class="nx">popBox</span><span class="p">.</span><span class="nx">call</span><span class="p">(</span><span class="k">this</span><span class="p">,</span> <span class="nx">_id</span><span class="p">,</span> <span class="nx">_closeId</span><span class="p">,</span> <span class="nx">_submit</span><span class="p">,</span> <span class="kc">true</span><span class="p">);</span>
-</span><span class='line'><span class="p">});</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>待续>></p>
-]]></content>
-  </entry>
-  
-  <entry>
     <title type="html"><![CDATA[seaJs入门简介]]></title>
     <link href="http://PPPanda.github.com/article/seajs-use.html"/>
     <updated>2012-12-12T16:14:00+08:00</updated>
@@ -410,56 +360,7 @@
 
 <h3>定义模块</h3>
 
-<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-<span class='line-number'>16</span>
-<span class='line-number'>17</span>
-<span class='line-number'>18</span>
-<span class='line-number'>19</span>
-<span class='line-number'>20</span>
-<span class='line-number'>21</span>
-<span class='line-number'>22</span>
-<span class='line-number'>23</span>
-</pre></td><td class='code'><pre><code class='js'><span class='line'><span class="c1">//define 模块基本factory参数用法 </span>
-</span><span class='line'><span class="nx">define</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">require</span><span class="p">,</span><span class="nx">exports</span><span class="p">,</span><span class="nx">module</span><span class="p">){</span>
-</span><span class='line'>    <span class="nx">exports</span><span class="p">.</span><span class="nx">Fn</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">para</span><span class="p">)</span> <span class="p">{</span>
-</span><span class='line'>        <span class="c1">//do Something</span>
-</span><span class='line'>    <span class="p">};</span>
-</span><span class='line'><span class="p">});</span>
-</span><span class='line'>
-</span><span class='line'><span class="nx">define</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">require</span><span class="p">,</span> <span class="nx">exports</span><span class="p">,</span> <span class="nx">module</span><span class="p">)</span> <span class="p">{</span>
-</span><span class='line'>    <span class="kd">var</span> <span class="nx">$</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;jquery&#39;</span><span class="p">);</span> <span class="c1">//引入jquery模块</span>
-</span><span class='line'>    <span class="kd">var</span> <span class="nx">ST</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;sntouch&#39;</span><span class="p">);</span> <span class="c1">//引入sntouch模块</span>
-</span><span class='line'>
-</span><span class='line'>    <span class="kd">var</span> <span class="nx">data1</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="c1">//私有数据</span>
-</span><span class='line'>
-</span><span class='line'>    <span class="kd">var</span> <span class="nx">func1</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span> <span class="c1">//私有方法</span>
-</span><span class='line'>        <span class="k">return</span> <span class="s1">&#39;func1&#39;</span>
-</span><span class='line'>    <span class="p">}</span>
-</span><span class='line'>
-</span><span class='line'>    <span class="nx">exports</span><span class="p">.</span><span class="nx">data2</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span> <span class="c1">//公共数据</span>
-</span><span class='line'>
-</span><span class='line'>    <span class="nx">exports</span><span class="p">.</span><span class="nx">func2</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">str</span><span class="p">)</span> <span class="p">{</span> <span class="c1">//公共方法</span>
-</span><span class='line'>        <span class="nx">alert</span><span class="p">(</span><span class="nx">str</span><span class="p">)</span>
-</span><span class='line'>    <span class="p">}</span>
-</span><span class='line'><span class="p">});</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-
+<p>Liquid error: undefined method `Py_IsInitialized&#8217; for RubyPython::Python:Module</p>
 
 <!--more -->
 
@@ -469,72 +370,18 @@
 <h3>加载模块</h3>
 
 <p>先引入sea.js
-使用sayHello模块：</p>
-
-<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-</pre></td><td class='code'><pre><code class='js'><span class='line'><span class="nx">seajs</span><span class="p">.</span><span class="nx">use</span><span class="p">(</span><span class="s2">&quot;alias/main&quot;</span><span class="p">,</span><span class="kd">function</span><span class="p">(</span><span class="nx">s</span><span class="p">){</span>
-</span><span class='line'>  <span class="nx">s</span><span class="p">.</span><span class="nx">func2</span><span class="p">(</span><span class="s2">&quot;Hello SeaJS!&quot;</span><span class="p">);</span>
-</span><span class='line'><span class="p">});</span>
-</span></code></pre></td></tr></table></div></figure>
-
+使用sayHello模块：
+Liquid error: undefined method `Py_IsInitialized&#8217; for RubyPython::Python:Module</p>
 
 <h3>模块的依赖关系</h3>
 
-<figure class='code'><figcaption><span>小例子 </span><a href='http://lab.ppanda.com/demo/seajs.html'>Demo </a></figcaption> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-<span class='line-number'>16</span>
-</pre></td><td class='code'><pre><code class='js'><span class='line'><span class="nx">define</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">require</span><span class="p">,</span> <span class="nx">exports</span><span class="p">,</span> <span class="nx">module</span><span class="p">)</span> <span class="p">{</span>
-</span><span class='line'>    <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;base_book&#39;</span><span class="p">);</span> <span class="c1">//引入一个小js库</span>
-</span><span class='line'>    <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;../../stylesheets/filter.css&#39;</span><span class="p">)</span>
-</span><span class='line'>    <span class="kd">var</span> <span class="nx">data1</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="c1">//私有数据</span>
-</span><span class='line'>    <span class="kd">var</span> <span class="nx">id</span> <span class="o">=</span> <span class="s2">&quot;#search_box&quot;</span><span class="p">;</span>
-</span><span class='line'>
-</span><span class='line'>    <span class="nx">exports</span><span class="p">.</span><span class="nx">data2</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span> <span class="c1">//公共数据</span>
-</span><span class='line'>
-</span><span class='line'>    <span class="nx">exports</span><span class="p">.</span><span class="nx">func2</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">str</span><span class="p">)</span> <span class="p">{</span> <span class="c1">//公共方法</span>
-</span><span class='line'>        <span class="nx">alert</span><span class="p">(</span><span class="nx">str</span><span class="p">)</span>
-</span><span class='line'>    <span class="p">}</span>
-</span><span class='line'>    <span class="nx">exports</span><span class="p">.</span><span class="nx">filter</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(){</span>
-</span><span class='line'>        <span class="nx">ST</span><span class="p">.</span><span class="nx">Widget</span><span class="p">.</span><span class="nx">SearchPop</span><span class="p">(</span><span class="nx">id</span><span class="p">,</span><span class="s2">&quot;a&quot;</span><span class="p">);</span>
-</span><span class='line'>        <span class="nx">ST</span><span class="p">.</span><span class="nx">Widget</span><span class="p">.</span><span class="nx">Shake</span><span class="p">()</span>
-</span><span class='line'>    <span class="p">}</span>
-</span><span class='line'><span class="p">});</span>
-</span></code></pre></td></tr></table></div></figure>
-
+<p>Liquid error: undefined method `Py_IsInitialized&#8217; for RubyPython::Python:Module</p>
 
 <h3>配置</h3>
 
 <p><a href="https://github.com/seajs/seajs/issues/262"><code>seajs.config</code></a></p>
 
-<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-</pre></td><td class='code'><pre><code class='js'><span class='line'><span class="nx">seajs</span><span class="p">.</span><span class="nx">config</span><span class="p">({</span>
-</span><span class='line'>  <span class="nx">alias</span><span class="o">:</span> <span class="p">{</span>
-</span><span class='line'>    <span class="s1">&#39;app&#39;</span><span class="o">:</span> <span class="s1">&#39;http://path/to/app&#39;</span><span class="p">,</span>
-</span><span class='line'>    <span class="s1">&#39;jquery&#39;</span><span class="o">:</span> <span class="s1">&#39;gallery/jquery/1.8.2/jquery&#39;</span>
-</span><span class='line'>  <span class="p">}</span>
-</span><span class='line'><span class="p">});</span>
-</span></code></pre></td></tr></table></div></figure>
-
+<p>Liquid error: undefined method `Py_IsInitialized&#8217; for RubyPython::Python:Module</p>
 
 <h3>CMD规范</h3>
 
